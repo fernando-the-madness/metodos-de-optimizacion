@@ -1,10 +1,10 @@
-# app.py
+# utils/app.py
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 from env.network_env import NetworkEnv
 from env.fog_node import FogNode
-from dqn.dqn_agent import DQNAgent
+from dgn.dgn_agent import DQNAgent
 from utils.config import Config
 from utils.visualization import plot_go_scores, plot_resource_utilization
 
