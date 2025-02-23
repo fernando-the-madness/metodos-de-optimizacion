@@ -23,13 +23,21 @@ resource_capacity = st.sidebar.slider("Capacidad de recursos por Fog Node", 1, 1
 num_episodes = st.sidebar.slider("Número de episodios de entrenamiento", 1, 1000, 100)
 
 # Crear Fog Nodes
-fog_nodes = [FogNode(i, resource_capacity) for i in range(num_fog_nodes)]
-env = NetworkEnv(fog_nodes)
+try:
+    fog_nodes = [FogNode(i, resource_capacity) for i in range(num_fog_nodes)]
+    env = NetworkEnv(fog_nodes)
+except Exception as e:
+    st.error(f"Error al inicializar el entorno: {e}")
+    st.stop()
 
 # Crear el agente DQN
-state_size = Config.STATE_SIZE
-action_size = num_fog_nodes + 1  # Acciones: servir en FN1, FN2, ..., rechazar
-agent = DQNAgent(state_size, action_size)
+try:
+    state_size = Config.STATE_SIZE
+    action_size = num_fog_nodes + 1  # Acciones: servir en FN1, FN2, ..., rechazar
+    agent = DQNAgent(state_size, action_size)
+except Exception as e:
+    st.error(f"Error al inicializar el agente DQN: {e}")
+    st.stop()
 
 # Botón para iniciar la simulación
 if st.sidebar.button("Iniciar Simulación"):
@@ -38,6 +46,10 @@ if st.sidebar.button("Iniciar Simulación"):
     # Listas para almacenar métricas
     go_scores = []
     resource_utilization = []
+
+    # Barra de progreso
+    progress_bar = st.progress(0)
+    status_text = st.empty()
 
     # Entrenar el agente
     for episode in range(num_episodes):
@@ -59,6 +71,11 @@ if st.sidebar.button("Iniciar Simulación"):
         # Calcular métricas (GoS y utilización de recursos)
         go_scores.append(env.calculate_go_scores())
         resource_utilization.append(env.calculate_resource_utilization())
+
+        # Actualizar barra de progreso
+        progress = (episode + 1) / num_episodes
+        progress_bar.progress(progress)
+        status_text.text(f"Progreso: {int(progress * 100)}%")
 
     st.write("Simulación completada.")
 
