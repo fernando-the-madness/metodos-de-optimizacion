@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import tensorflow as tf
+import matplotlib.pyplot as plt
 from collections import deque
 import random
 
@@ -15,23 +16,37 @@ class NetworkEnvironment:
         self.max_holding_time = max_holding_time
         self.state = np.zeros((num_fog_nodes, 2))  # [recursos ocupados, carga de trabajo]
         self.task_queue = deque()
+        self.high_utility_tasks_served = 0
+        self.high_utility_tasks_received = 0
+        self.total_tasks_served = 0
+        self.total_tasks_received = 0
 
     def reset(self):
         self.state = np.zeros((self.num_fog_nodes, 2))
         self.task_queue.clear()
+        self.high_utility_tasks_served = 0
+        self.high_utility_tasks_received = 0
+        self.total_tasks_served = 0
+        self.total_tasks_received = 0
         return self.state.flatten()
 
     def step(self, action, task):
-        # task = (utility, required_resources, holding_time)
         utility, required_resources, holding_time = task
         reward = 0
         done = False
+
+        self.total_tasks_received += 1
+        if utility >= 8:  # Umbral para tareas de alta utilidad
+            self.high_utility_tasks_received += 1
 
         if action < self.num_fog_nodes:  # Asignar a un nodo de borde
             if self.state[action, 0] + required_resources <= self.resource_capacity:
                 self.state[action, 0] += required_resources
                 self.state[action, 1] += holding_time
                 reward = 24 if utility >= 8 else -3  # Recompensa basada en la utilidad
+                self.total_tasks_served += 1
+                if utility >= 8:
+                    self.high_utility_tasks_served += 1
             else:
                 reward = -12  # Penalización por rechazo
         else:  # Rechazar y enviar a la nube
@@ -124,6 +139,11 @@ agent = DQNAgent(state_size, action_size)
 # Entrenamiento del modelo
 if st.sidebar.button("Entrenar modelo"):
     st.write("Entrenando el modelo DQN...")
+    rewards_history = []
+    gos_history = []
+    utilization_history = []
+    cloud_avoidance_history = []
+
     for episode in range(num_episodes):
         state = env.reset()
         total_reward = 0
@@ -146,9 +166,33 @@ if st.sidebar.button("Entrenar modelo"):
                 agent.replay(batch_size)
 
         agent.update_target_model()
-        st.write(f"Episodio {episode + 1}, Recompensa total: {total_reward}")
+
+        # Calcular métricas
+        gos = env.high_utility_tasks_served / env.high_utility_tasks_received if env.high_utility_tasks_received > 0 else 0
+        utilization = np.sum(env.state[:, 0]) / (num_fog_nodes * resource_capacity)
+        cloud_avoidance = env.total_tasks_served / env.total_tasks_received if env.total_tasks_received > 0 else 0
+
+        rewards_history.append(total_reward)
+        gos_history.append(gos)
+        utilization_history.append(utilization)
+        cloud_avoidance_history.append(cloud_avoidance)
+
+        st.write(f"Episodio {episode + 1}, Recompensa total: {total_reward}, GoS: {gos:.2f}, Utilización: {utilization:.2f}, Cloud Avoidance: {cloud_avoidance:.2f}")
 
     st.success("¡Entrenamiento completado!")
+
+    # Gráficos de métricas
+    st.header("Métricas de Rendimiento")
+    fig, ax = plt.subplots(2, 2, figsize=(12, 8))
+    ax[0, 0].plot(rewards_history)
+    ax[0, 0].set_title("Recompensa Total por Episodio")
+    ax[0, 1].plot(gos_history)
+    ax[0, 1].set_title("Grade of Service (GoS)")
+    ax[1, 0].plot(utilization_history)
+    ax[1, 0].set_title("Utilización de Recursos")
+    ax[1, 1].plot(cloud_avoidance_history)
+    ax[1, 1].set_title("Cloud Avoidance")
+    st.pyplot(fig)
 
 # Simulación en tiempo real
 if st.button("Simular asignación de tareas"):
