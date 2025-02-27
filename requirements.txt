@@ -1,0 +1,16 @@
+streamlit
+numpy
+pandas
+matplotlib
+scikit-learn
+tensorflow
+optuna
+plotly
+seaborn
+python-dateutil
+tqdm
+pyyaml
+protobuf
+pulp
+yfinance 
+scipy
