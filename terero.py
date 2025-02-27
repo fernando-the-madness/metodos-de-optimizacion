@@ -1,62 +1,57 @@
 import streamlit as st
-import pandas as pd
 import numpy as np
+import pandas as pd
+import yfinance as yf
 import matplotlib.pyplot as plt
 from scipy.optimize import minimize
 
-# Generar datos simulados
-np.random.seed(42)
-assets = ['AAPL', 'GOOGL', 'AMZN', 'MSFT', 'TSLA']
-dates = pd.date_range(start='2023-01-01', periods=100, freq='D')
-data = pd.DataFrame(np.random.randn(100, len(assets)) * 0.02 + 0.001, index=dates, columns=assets)
-data = (1 + data).cumprod()  # Simula precios de activos
+# Función para obtener datos de precios ajustados
+@st.cache_data
+def obtener_precios(tickers, start, end):
+    datos = yf.download(tickers, start=start, end=end)['Adj Close']
+    return datos.dropna()
 
 # Función para calcular métricas de la cartera
-def portfolio_metrics(weights, returns, cov_matrix):
-    port_return = np.sum(returns * weights)
-    port_volatility = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights)))
-    return port_return, port_volatility
+def calcular_metricas(pesos, retornos, covarianza):
+    rendimiento = np.sum(retornos * pesos) * 252
+    riesgo = np.sqrt(np.dot(pesos.T, np.dot(covarianza, pesos))) * np.sqrt(252)
+    return rendimiento, riesgo
 
-# Función para optimizar la cartera (Modelo de Markowitz)
-def optimize_portfolio(returns, cov_matrix, risk_tolerance):
-    num_assets = len(returns)
-    init_guess = np.ones(num_assets) / num_assets
-    bounds = [(0, 1) for _ in range(num_assets)]
-    constraints = ({'type': 'eq', 'fun': lambda w: np.sum(w) - 1})
-    
-    def neg_sharpe_ratio(weights):
-        port_return, port_volatility = portfolio_metrics(weights, returns, cov_matrix)
-        return -port_return / port_volatility  # Maximizar el Sharpe Ratio
-    
-    result = minimize(neg_sharpe_ratio, init_guess, bounds=bounds, constraints=constraints)
-    return result.x
+# Función para optimizar la cartera usando Markowitz
+def optimizar_cartera(retornos, covarianza):
+    num_activos = len(retornos)
+    args = (retornos, covarianza)
+    restricciones = ({'type': 'eq', 'fun': lambda x: np.sum(x) - 1})
+    limites = tuple((0, 1) for _ in range(num_activos))
+    funcion_objetivo = lambda pesos, retornos, cov: -calcular_metricas(pesos, retornos, cov)[0] / calcular_metricas(pesos, retornos, cov)[1]
+    resultado = minimize(funcion_objetivo, num_activos * [1. / num_activos,], args=args, method='SLSQP', bounds=limites, constraints=restricciones)
+    return resultado.x
 
-# Interfaz con Streamlit
-st.title('Optimización de Carteras con el Modelo de Markowitz')
+# Configuración de Streamlit
+st.title('Optimización de Carteras - Modelo de Markowitz')
+st.sidebar.header('Parámetros')
 
-# Mostrar datos simulados
-st.write("Datos simulados de precios de activos:", data.head())
+# Selección de parámetros por el usuario
+tickers = st.sidebar.text_input('Tickers (separados por espacio)', 'AAPL MSFT GOOGL AMZN TSLA').split()
+fecha_inicio = st.sidebar.date_input('Fecha de inicio', pd.to_datetime('2020-01-01'))
+fecha_fin = st.sidebar.date_input('Fecha de fin', pd.to_datetime('2023-01-01'))
 
-# Cálculo de retornos
-returns = data.pct_change().dropna()
-mean_returns = returns.mean()
-cov_matrix = returns.cov()
+if st.sidebar.button('Optimizar cartera'):
+    precios = obtener_precios(tickers, fecha_inicio, fecha_fin)
+    retornos_diarios = precios.pct_change().dropna()
+    retornos_esperados = retornos_diarios.mean()
+    matriz_covarianza = retornos_diarios.cov()
+    pesos_optimos = optimizar_cartera(retornos_esperados, matriz_covarianza)
+    rendimiento_opt, riesgo_opt = calcular_metricas(pesos_optimos, retornos_esperados, matriz_covarianza)
+    st.subheader('Resultados de la Optimización')
+    st.write(f'Rendimiento Esperado: {rendimiento_opt:.2%}')
+    st.write(f'Riesgo (Desviación Estándar): {riesgo_opt:.2%}')
+    st.write('Pesos Óptimos:')
+    for ticker, peso in zip(tickers, pesos_optimos):
+        st.write(f'{ticker}: {peso:.2%}')
 
-# Selección del nivel de riesgo
-risk_tolerance = st.slider("Nivel de aversión al riesgo", min_value=0.1, max_value=10.0, value=2.0)
-
-# Optimización
-optimal_weights = optimize_portfolio(mean_returns, cov_matrix, risk_tolerance)
-optimal_allocation = pd.DataFrame({'Activo': data.columns, 'Pesos óptimos': optimal_weights})
-st.write("Distribución óptima de activos:", optimal_allocation)
-
-# Visualización de la frontera eficiente
-st.subheader("Frontera Eficiente")
-fig, ax = plt.subplots()
-ax.scatter(np.sqrt(np.diag(cov_matrix)), mean_returns, c='blue', label='Activos individuales')
-opt_ret, opt_vol = portfolio_metrics(optimal_weights, mean_returns, cov_matrix)
-ax.scatter(opt_vol, opt_ret, c='red', marker='*', s=200, label='Cartera Óptima')
-ax.set_xlabel("Volatilidad")
-ax.set_ylabel("Retorno Esperado")
-ax.legend()
-st.pyplot(fig)
+    # Visualización de la composición de la cartera
+    fig, ax = plt.subplots()
+    ax.pie(pesos_optimos, labels=tickers, autopct='%1.1f%%', startangle=90)
+    ax.axis('equal')
+    st.pyplot(fig)
