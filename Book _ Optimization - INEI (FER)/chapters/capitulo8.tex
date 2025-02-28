@@ -1,0 +1,745 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{top=3cm}
+\usepackage{apacite}
+\usepackage{amsmath} % Para ecuaciones matemáticas
+\usepackage{hyperref}
+\usepackage{chapterbib} % Para bibliografías por capítulo
+
+\begin{document}
+	
+	\chapter{Optimización para clasificación y regresión \\ con datos de ENAHO}
+	\textbf{Autor}: \large{Ronald Junior pilco nuñez}
+	\label{chap:8}
+	
+	\vspace{1cm}
+	
+La optimización de modelos predictivos es un paso fundamental en el proceso de aprendizaje automático, ya que permite mejorar el rendimiento, prevenir el sobreajuste y garantizar que los modelos sean eficientes y generalizables \cite{1}. 
+
+En el contexto de la \textbf{Encuesta Nacional de Hogares (ENAHO)}, realizada en Perú, la optimización adquiere especial relevancia debido a la complejidad y riqueza de los datos recopilados. La ENAHO proporciona información detallada sobre ingresos, educación, salud, empleo y vivienda, lo que la convierte en una fuente invaluable para estudios de clasificación y regresión \cite{2}. 
+
+Estos estudios pueden, por ejemplo, predecir niveles de pobreza, estimar gastos en salud o evaluar el impacto de políticas públicas, contribuyendo así a la toma de decisiones informadas y al diseño de intervenciones más efectivas \cite{3}.
+
+	
+	\section{Preprocesamiento de datos e ingeniería de características para ENAHO}
+	
+	Cuando trabajamos con datos del mundo real, rara vez se presentan en un formato listo para ser utilizado en modelos predictivos. En el caso de la \textbf{Encuesta Nacional de Hogares (ENAHO)}, la información proviene de encuestas detalladas que incluyen una combinación de variables numéricas, categóricas y, en muchos casos, valores faltantes o inconsistentes. Por esta razón, antes de construir modelos de regresión o clasificación, debemos asegurarnos de que los datos estén limpios y bien estructurados.
+	
+	\subsection{Carga y exploración de datos}
+	
+	El primer paso en cualquier análisis de datos es cargar la información y realizar una exploración inicial para comprender su estructura. Supongamos que tenemos un archivo en formato CSV con los datos de ENAHO.
+	
+	\begin{lstlisting}[language=Python, caption=Carga y exploración de datos]
+		import pandas as pd
+		import numpy as np
+		
+		# Cargar el archivo CSV de ENAHO
+		df = pd.read_csv("enaho_data.csv")
+		
+		# Mostrar las primeras filas del dataset
+		print(df.head())
+		
+		# Información general del dataset
+		print(df.info())
+		
+		# Estadísticas descriptivas de las variables numéricas
+		print(df.describe())
+	\end{lstlisting}
+	
+	\subsection{Manejo de valores nulos}
+	
+	Es común encontrar valores faltantes en los datos de encuestas. Para abordar este problema, podemos seguir diferentes estrategias:
+	
+	\begin{itemize}
+		\item Eliminar filas o columnas con demasiados valores nulos.
+		\item Imputar valores numéricos con la media, mediana o moda.
+		\item Imputar valores categóricos con la moda o una categoría especial (\texttt{"Desconocido"}).
+	\end{itemize}
+	
+	\begin{lstlisting}[language=Python, caption=Manejo de valores nulos]
+		# Ver cuántos valores nulos hay en cada columna
+		print(df.isnull().sum())
+		
+		# Eliminar columnas con más del 50% de valores nulos
+		df = df.dropna(thresh=len(df) * 0.5, axis=1)
+		
+		# Imputación de valores numéricos con la media
+		df.fillna(df.mean(), inplace=True)
+		
+		# Imputación de valores categóricos con la moda
+		for col in df.select_dtypes(include=['object']).columns:
+		df[col].fillna(df[col].mode()[0], inplace=True)
+	\end{lstlisting}
+	
+	\subsection{Codificación de variables categóricas}
+	
+	Para que los modelos de machine learning puedan trabajar con variables categóricas, debemos convertirlas en valores numéricos. Existen dos métodos comunes:
+	
+	\begin{itemize}
+		\item \textbf{Label Encoding}: Asigna un número entero a cada categoría.
+		\item \textbf{One-Hot Encoding}: Crea columnas binarias para cada categoría.
+	\end{itemize}
+	
+	\begin{lstlisting}[language=Python, caption=Codificación de variables categóricas]
+		from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+		
+		# Label Encoding para variables ordinales
+		le = LabelEncoder()
+		df['nivel_educativo'] = le.fit_transform(df['nivel_educativo'])
+		
+		# One-Hot Encoding para variables nominales
+		df = pd.get_dummies(df, columns=['region', 'tipo_vivienda'], drop_first=True)
+	\end{lstlisting}
+	
+	\subsection{Escalamiento de variables numéricas}
+	
+	Algunos algoritmos son sensibles a la escala de los datos, por lo que podemos aplicar dos métodos de escalamiento:
+	
+	\begin{itemize}
+		\item \textbf{Normalización (MinMaxScaler)}: Convierte los valores en un rango entre 0 y 1.
+		\item \textbf{Estandarización (StandardScaler)}: Transforma los datos para que tengan media 0 y desviación estándar 1.
+	\end{itemize}
+	
+	\begin{lstlisting}[language=Python, caption=Escalamiento de variables numéricas]
+		from sklearn.preprocessing import StandardScaler, MinMaxScaler
+		
+		# Seleccionar variables numéricas
+		num_cols = ['ingreso_mensual', 'edad', 'horas_trabajo']
+		
+		# Aplicar estandarización
+		scaler = StandardScaler()
+		df[num_cols] = scaler.fit_transform(df[num_cols])
+		
+		# Alternativa: aplicar normalización
+		scaler = MinMaxScaler()
+		df[num_cols] = scaler.fit_transform(df[num_cols])
+	\end{lstlisting}
+	
+	\subsection{Creación de nuevas características (Feature Engineering)}
+	
+	Podemos mejorar nuestros modelos creando nuevas variables a partir de las existentes. Algunas ideas:
+	
+	\begin{itemize}
+		\item \textbf{Densidad de personas por hogar} = Número de personas / Número de habitaciones
+		\item \textbf{Ingreso per cápita} = Ingreso total del hogar / Número de miembros del hogar
+		\item \textbf{Grupo de edad} = Convertir edad en rangos
+	\end{itemize}
+	
+	\begin{lstlisting}[language=Python, caption=Creación de nuevas características]
+		# Densidad de personas por hogar
+		df['densidad_hogar'] = df['num_personas'] / df['num_habitaciones']
+		
+		# Ingreso per cápita
+		df['ingreso_per_capita'] = df['ingreso_total'] / df['num_personas']
+		
+		# Crear rangos de edad
+		df['grupo_edad'] = pd.cut(df['edad'], bins=[0, 18, 35, 60, 100], labels=['Joven', 'Adulto', 'Maduro', 'Mayor'])
+	\end{lstlisting}
+	
+	\subsection{Manejo de valores atípicos (outliers)}
+	
+	Los valores extremos pueden distorsionar los resultados del modelo. Podemos identificarlos usando:
+	
+	\begin{itemize}
+		\item \textbf{Método de cuartiles (IQR)}
+		\item \textbf{Z-score}
+	\end{itemize}
+	
+	\begin{lstlisting}[language=Python, caption=Eliminación de outliers con IQR]
+		Q1 = df['ingreso_mensual'].quantile(0.25)
+		Q3 = df['ingreso_mensual'].quantile(0.75)
+		IQR = Q3 - Q1
+		
+		# Definir límites
+		lower_bound = Q1 - 1.5 * IQR
+		upper_bound = Q3 + 1.5 * IQR
+		
+		# Filtrar datos dentro del rango permitido
+		df = df[(df['ingreso_mensual'] >= lower_bound) & (df['ingreso_mensual'] <= upper_bound)]
+	\end{lstlisting}
+	
+	\subsection{División en conjunto de entrenamiento y prueba}
+	
+	Antes de entrenar los modelos, dividimos los datos en un \textbf{conjunto de entrenamiento} y un \textbf{conjunto de prueba}.
+	
+	\begin{lstlisting}[language=Python, caption=División en entrenamiento y prueba]
+		from sklearn.model_selection import train_test_split
+		
+		X = df.drop(columns=['ingreso_mensual'])  # Variable objetivo
+		y = df['ingreso_mensual']
+		
+		X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+	\end{lstlisting}
+	
+	\section{Construcción de modelos predictivos}
+	
+	Una vez que los datos han sido preprocesados, el siguiente paso es construir modelos predictivos que nos permitan hacer inferencias sobre nuevas observaciones. Dependiendo del tipo de problema, podemos utilizar modelos de clasificación o regresión. En esta sección, exploraremos algunos de los modelos más comunes, incluyendo regresión logística y bosques aleatorios.
+	
+	\subsection{Regresión logística para clasificación}
+	
+	La \textbf{regresión logística} es un modelo ampliamente utilizado para problemas de clasificación binaria. Su ecuación se define como:
+	
+	\[
+	P(Y=1 | X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_n X_n)}}
+	\]
+	
+	Donde:
+	\begin{itemize}
+		\item \( P(Y=1 | X) \) es la probabilidad de que la observación pertenezca a la clase positiva.
+		\item \( \beta_0, \beta_1, ..., \beta_n \) son los coeficientes del modelo.
+		\item \( X_1, X_2, ..., X_n \) son las variables predictoras.
+	\end{itemize}
+	
+	Para entrenar un modelo de regresión logística en Python, podemos utilizar la librería \texttt{scikit-learn}.
+	
+	\begin{lstlisting}[language=Python, caption=Entrenamiento de regresión logística]
+		from sklearn.model_selection import train_test_split
+		from sklearn.linear_model import LogisticRegression
+		from sklearn.metrics import accuracy_score
+		
+		# Separar datos en variables predictoras y objetivo
+		X = df.drop(columns=['target_variable'])
+		y = df['target_variable']
+		
+		# Dividir en entrenamiento y prueba
+		X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+		
+		# Entrenar el modelo
+		logreg = LogisticRegression()
+		logreg.fit(X_train, y_train)
+		
+		# Hacer predicciones
+		y_pred = logreg.predict(X_test)
+		
+		# Evaluación del modelo
+		accuracy = accuracy_score(y_test, y_pred)
+		print(f'Precisión del modelo: {accuracy:.2f}')
+	\end{lstlisting}
+	
+	\subsection{Bosques aleatorios para clasificación y regresión}
+	
+	Los \textbf{bosques aleatorios} (\textit{Random Forest}) son un conjunto de múltiples árboles de decisión que trabajan en conjunto para hacer predicciones. Se utilizan tanto para clasificación como para regresión.
+	
+	\subsubsection{Algoritmo de bosques aleatorios}
+	
+	El algoritmo se basa en los siguientes pasos:
+	\begin{enumerate}
+		\item Se seleccionan múltiples subconjuntos aleatorios del conjunto de datos original (\textit{bootstrap sampling}).
+		\item Se entrenan múltiples árboles de decisión en estos subconjuntos.
+		\item Cada árbol genera una predicción y el resultado final se obtiene por votación (clasificación) o promediando las predicciones (regresión).
+	\end{enumerate}
+	
+	\subsubsection{Implementación en Python}
+	
+	\begin{lstlisting}[language=Python, caption=Entrenamiento de Random Forest]
+		from sklearn.ensemble import RandomForestClassifier
+		from sklearn.metrics import classification_report
+		
+		# Entrenar modelo Random Forest para clasificación
+		rf = RandomForestClassifier(n_estimators=100, random_state=42)
+		rf.fit(X_train, y_train)
+		
+		# Hacer predicciones
+		y_pred_rf = rf.predict(X_test)
+		
+		# Evaluar el modelo
+		print(classification_report(y_test, y_pred_rf))
+	\end{lstlisting}
+	
+	Para un problema de \textbf{regresión}, podemos usar \texttt{RandomForestRegressor}:
+	
+	\begin{lstlisting}[language=Python, caption=Entrenamiento de Random Forest para regresión]
+		from sklearn.ensemble import RandomForestRegressor
+		from sklearn.metrics import mean_squared_error
+		
+		# Entrenar modelo Random Forest para regresión
+		rf_reg = RandomForestRegressor(n_estimators=100, random_state=42)
+		rf_reg.fit(X_train, y_train)
+		
+		# Hacer predicciones
+		y_pred_rf_reg = rf_reg.predict(X_test)
+		
+		# Evaluar el modelo con MSE
+		mse = mean_squared_error(y_test, y_pred_rf_reg)
+		print(f'Error cuadrático medio (MSE): {mse:.2f}')
+	\end{lstlisting}
+	
+	\subsection{Otros modelos de aprendizaje automático}
+	
+	Además de los modelos mencionados, existen otras técnicas que pueden ser útiles dependiendo del tipo de datos y problema:
+	
+	\begin{itemize}
+		\item \textbf{SVM (Máquinas de Soporte Vectorial)}: Útil para clasificación en espacios de alta dimensión.
+		\item \textbf{Gradient Boosting (XGBoost, LightGBM)}: Modelos avanzados que combinan múltiples árboles de decisión para mejorar la precisión.
+		\item \textbf{K-Nearest Neighbors (KNN)}: Modelo basado en la similitud entre observaciones.
+	\end{itemize}
+	
+	\begin{lstlisting}[language=Python, caption=Ejemplo de modelo SVM]
+		from sklearn.svm import SVC
+		
+		# Entrenar un modelo SVM
+		svm = SVC(kernel='linear')
+		svm.fit(X_train, y_train)
+		
+		# Hacer predicciones
+		y_pred_svm = svm.predict(X_test)
+	\end{lstlisting}
+	
+	\section{Optimización de parámetros}
+	
+	El rendimiento de un modelo de aprendizaje automático depende en gran medida de los valores de sus hiperparámetros. La optimización de hiperparámetros consiste en encontrar la mejor combinación de estos valores para mejorar el desempeño del modelo. Existen varias estrategias para llevar a cabo este proceso, incluyendo la búsqueda en cuadrícula, la búsqueda aleatoria y la optimización bayesiana.
+	
+	\subsection{Búsqueda en cuadrícula (Grid Search)}
+	
+	La \textbf{búsqueda en cuadrícula} (\textit{Grid Search}) evalúa de manera exhaustiva todas las combinaciones posibles de hiperparámetros dentro de un conjunto predefinido. Aunque este método garantiza encontrar la mejor combinación dentro de los valores proporcionados, puede ser computacionalmente costoso.
+	
+	\subsubsection{Ejemplo con GridSearchCV}
+	
+	\begin{lstlisting}[language=Python, caption=Optimización de hiperparámetros con Grid Search]
+		from sklearn.model_selection import GridSearchCV
+		from sklearn.ensemble import RandomForestClassifier
+		
+		# Definir el modelo
+		rf = RandomForestClassifier(random_state=42)
+		
+		# Definir los hiperparámetros a evaluar
+		param_grid = {
+			'n_estimators': [50, 100, 200],
+			'max_depth': [None, 10, 20],
+			'min_samples_split': [2, 5, 10]
+		}
+		
+		# Configurar la búsqueda en cuadrícula
+		grid_search = GridSearchCV(rf, param_grid, cv=5, scoring='accuracy', n_jobs=-1)
+		grid_search.fit(X_train, y_train)
+		
+		# Mejor combinación de hiperparámetros
+		print(f'Mejores hiperparámetros: {grid_search.best_params_}')
+	\end{lstlisting}
+	
+	\subsection{Búsqueda aleatoria (Random Search)}
+	
+	La \textbf{búsqueda aleatoria} (\textit{Random Search}) selecciona combinaciones de hiperparámetros de manera aleatoria dentro de un espacio predefinido. A diferencia de la búsqueda en cuadrícula, este método no evalúa todas las combinaciones posibles, lo que puede reducir el tiempo de cómputo significativamente.
+	
+	\subsubsection{Ejemplo con RandomizedSearchCV}
+	
+	\begin{lstlisting}[language=Python, caption=Optimización de hiperparámetros con Random Search]
+		from sklearn.model_selection import RandomizedSearchCV
+		import numpy as np
+		
+		# Definir el modelo
+		rf = RandomForestClassifier(random_state=42)
+		
+		# Definir el espacio de búsqueda
+		param_dist = {
+			'n_estimators': np.arange(50, 300, 50),
+			'max_depth': [None, 10, 20, 30],
+			'min_samples_split': np.arange(2, 20, 2)
+		}
+		
+		# Configurar la búsqueda aleatoria
+		random_search = RandomizedSearchCV(rf, param_distributions=param_dist, n_iter=10, cv=5, scoring='accuracy', random_state=42, n_jobs=-1)
+		random_search.fit(X_train, y_train)
+		
+		# Mejor combinación de hiperparámetros
+		print(f'Mejores hiperparámetros: {random_search.best_params_}')
+	\end{lstlisting}
+	
+	\subsection{Optimización bayesiana}
+	
+	La \textbf{optimización bayesiana} es una técnica más avanzada que modela la relación entre los hiperparámetros y la métrica de evaluación usando un proceso estocástico, como un \textit{Gaussian Process}. En lugar de probar combinaciones al azar o en cuadrícula, este método elige inteligentemente los conjuntos de parámetros más prometedores.
+	
+	\subsubsection{Ejemplo con Optuna}
+	
+	\begin{lstlisting}[language=Python, caption=Optimización de hiperparámetros con Optuna]
+		import optuna
+		from sklearn.ensemble import RandomForestClassifier
+		from sklearn.model_selection import cross_val_score
+		
+		# Definir la función objetivo para Optuna
+		def objective(trial):
+		n_estimators = trial.suggest_int('n_estimators', 50, 300)
+		max_depth = trial.suggest_int('max_depth', 5, 50)
+		min_samples_split = trial.suggest_int('min_samples_split', 2, 20)
+		
+		rf = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth, min_samples_split=min_samples_split, random_state=42)
+		score = cross_val_score(rf, X_train, y_train, cv=5, scoring='accuracy').mean()
+		return score
+		
+		# Crear un estudio de optimización
+		study = optuna.create_study(direction='maximize')
+		study.optimize(objective, n_trials=20)
+		
+		# Mejor combinación de hiperparámetros
+		print(f'Mejores hiperparámetros: {study.best_params}')
+	\end{lstlisting}
+	
+	\subsection{Comparación de métodos}
+	
+	Cada una de estas estrategias tiene ventajas y desventajas dependiendo del problema:
+	
+	\begin{itemize}
+		\item \textbf{Grid Search}: Evalúa todas las combinaciones, pero puede ser computacionalmente costosa.
+		\item \textbf{Random Search}: Reduce el tiempo de cómputo al probar combinaciones aleatorias.
+		\item \textbf{Optimización Bayesiana}: Enfoca la búsqueda en combinaciones prometedoras, mejorando eficiencia y rendimiento.
+	\end{itemize}
+	
+	\section{Métricas de evaluación de modelos}
+	
+	Una vez que hemos entrenado un modelo de clasificación o regresión, es fundamental evaluar su desempeño utilizando métricas adecuadas. La elección de la métrica dependerá del tipo de problema que estemos resolviendo\parencite{ramos-2011}.
+	
+	\subsection{Métricas para clasificación}
+	
+	En los problemas de clasificación, es común evaluar el modelo utilizando métricas como la precisión (\textit{accuracy}), la exhaustividad (\textit{recall}), la precisión (\textit{precision}) y la puntuación F1 (\textit{F1-score}).
+	
+	\subsubsection{Precisión (\textit{Accuracy})}
+	
+	La \textbf{precisión} mide la proporción de predicciones correctas con respecto al total de observaciones:
+	
+	\[
+	\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+	\]
+	
+	donde:
+	\begin{itemize}
+		\item \( TP \) (Verdaderos Positivos): Casos correctamente clasificados como positivos.
+		\item \( TN \) (Verdaderos Negativos): Casos correctamente clasificados como negativos.
+		\item \( FP \) (Falsos Positivos): Casos incorrectamente clasificados como positivos.
+		\item \( FN \) (Falsos Negativos): Casos incorrectamente clasificados como negativos.
+	\end{itemize}
+	
+	\begin{lstlisting}[language=Python, caption=Cálculo de precisión en Python]
+		from sklearn.metrics import accuracy_score
+		
+		accuracy = accuracy_score(y_test, y_pred)
+		print(f'Precisión del modelo: {accuracy:.2f}')
+	\end{lstlisting}
+	
+	\subsubsection{Precisión y Recall}
+	
+	\textbf{Precisión} mide qué proporción de las predicciones positivas fueron realmente positivas:
+	
+	\[
+	\text{Precision} = \frac{TP}{TP + FP}
+	\]
+	
+	\textbf{Recall} mide la capacidad del modelo para identificar correctamente todas las observaciones positivas:
+	
+	\[
+	\text{Recall} = \frac{TP}{TP + FN}
+	\]
+	
+	\begin{lstlisting}[language=Python, caption=Cálculo de precisión y recall]
+		from sklearn.metrics import precision_score, recall_score
+		
+		precision = precision_score(y_test, y_pred)
+		recall = recall_score(y_test, y_pred)
+		
+		print(f'Precisión: {precision:.2f}')
+		print(f'Recall: {recall:.2f}')
+	\end{lstlisting}
+	
+	\subsubsection{Puntuación F1 (\textit{F1-score})}
+	
+	La \textbf{puntuación F1} es la media armónica entre precisión y recall:
+	
+	\[
+	F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
+	\]
+	
+	\begin{lstlisting}[language=Python, caption=Cálculo de F1-score]
+		from sklearn.metrics import f1_score
+		
+		f1 = f1_score(y_test, y_pred)
+		print(f'F1-score: {f1:.2f}')
+	\end{lstlisting}
+	
+	\subsubsection{Matriz de confusión}
+	
+	La \textbf{matriz de confusión} es una herramienta visual que permite analizar los errores del modelo.
+	
+	\begin{lstlisting}[language=Python, caption=Matriz de confusión]
+		from sklearn.metrics import confusion_matrix
+		import seaborn as sns
+		import matplotlib.pyplot as plt
+		
+		cm = confusion_matrix(y_test, y_pred)
+		
+		# Visualización de la matriz de confusión
+		sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=['Negativo', 'Positivo'], yticklabels=['Negativo', 'Positivo'])
+		plt.xlabel("Predicción")
+		plt.ylabel("Real")
+		plt.show()
+	\end{lstlisting}
+	
+	\subsection{Métricas para regresión}
+	
+	Para problemas de regresión, se utilizan métricas que miden la diferencia entre los valores reales y las predicciones.
+	
+	\subsubsection{Error Cuadrático Medio (MSE)}
+	
+	El \textbf{error cuadrático medio} (\textit{Mean Squared Error, MSE}) mide el promedio de los errores elevados al cuadrado:
+	
+	\[
+	MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+	\]
+	
+	\begin{lstlisting}[language=Python, caption=Cálculo de MSE en Python]
+		from sklearn.metrics import mean_squared_error
+		
+		mse = mean_squared_error(y_test, y_pred)
+		print(f'Error Cuadrático Medio (MSE): {mse:.2f}')
+	\end{lstlisting}
+	
+	\subsubsection{Raíz del Error Cuadrático Medio (RMSE)}
+	
+	La \textbf{raíz del error cuadrático medio} (\textit{Root Mean Squared Error, RMSE}) es la raíz cuadrada del MSE y tiene la misma unidad que la variable objetivo:
+	
+	\[
+	RMSE = \sqrt{MSE}
+	\]
+	
+	\begin{lstlisting}[language=Python, caption=Cálculo de RMSE]
+		import numpy as np
+		
+		rmse = np.sqrt(mse)
+		print(f'Raíz del Error Cuadrático Medio (RMSE): {rmse:.2f}')
+	\end{lstlisting}
+	
+	\subsubsection{Error Absoluto Medio (MAE)}
+	
+	El \textbf{error absoluto medio} (\textit{Mean Absolute Error, MAE}) mide el promedio de los errores absolutos:
+	
+	\[
+	MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+	\]
+	
+	\begin{lstlisting}[language=Python, caption=Cálculo de MAE]
+		from sklearn.metrics import mean_absolute_error
+		
+		mae = mean_absolute_error(y_test, y_pred)
+		print(f'Error Absoluto Medio (MAE): {mae:.2f}')
+	\end{lstlisting}
+	
+	\subsubsection{Coeficiente de Determinación \( R^2 \)}
+	
+	El \textbf{coeficiente de determinación} \( R^2 \) mide qué tan bien el modelo explica la variabilidad de los datos:
+	
+	\[
+	R^2 = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}
+	\]
+	
+	\begin{lstlisting}[language=Python, caption=Cálculo de \( R^2 \)]
+		from sklearn.metrics import r2_score
+		
+		r2 = r2_score(y_test, y_pred)
+		print(f'Coeficiente de Determinación (R²): {r2:.2f}')
+	\end{lstlisting}
+	
+	\subsection{Comparación de métricas}
+	
+	\begin{itemize}
+		\item En \textbf{clasificación}, la métrica adecuada depende del problema:
+		\begin{itemize}
+			\item Si las clases están balanceadas, la \textbf{precisión} es una buena métrica.
+			\item Si hay desbalance, es mejor utilizar \textbf{recall} o \textbf{F1-score}.
+		\end{itemize}
+		\item En \textbf{regresión}:
+		\begin{itemize}
+			\item \textbf{MSE} penaliza más los errores grandes que el \textbf{MAE}.
+			\item \textbf{RMSE} tiene la misma unidad que la variable objetivo.
+			\item \textbf{R²} indica qué porcentaje de la variabilidad es explicada por el modelo.
+		\end{itemize}
+	\end{itemize}
+	
+	\section{Caso Pr\'actico: Preprocesamiento de Datos de ENAHO}
+	Información de la Relación Bimestral de Usuarios (RBU) del Programa Pensión 65 en el 2023
+	
+	\subsection{Carga y Exploraci\'on de Datos}
+	Para comenzar, cargamos los datos en un DataFrame y realizamos una exploraci\'on inicial:
+	
+	\begin{lstlisting}[caption=Carga y Exploraci\'on de Datos]
+		import pandas as pd
+		
+		df = pd.read_csv("ENAHO_P65_202306.csv", encoding="latin-1")
+		
+		print(df.info())
+		print(df.head())
+		print(df.describe())
+		
+		# Relleno de valores faltantes
+		for col in df.select_dtypes(include=['number']).columns:
+		df[col].fillna(df[col].median(), inplace=True)
+		
+		for col in df.select_dtypes(include=['object']).columns:
+		df[col].fillna(df[col].mode()[0], inplace=True)
+	\end{lstlisting}
+	Link del programa: \href{https://bit.ly/4h4g1iN}{https://bit.ly/4h4g1iN}
+	
+	\subsection{Manejo de Valores Faltantes}
+	Los valores nulos pueden afectar el rendimiento de los modelos, por lo que los tratamos de la siguiente manera:
+	
+	\begin{lstlisting}[caption=Manejo de Valores Faltantes]
+		import pandas as pd
+		
+		df = pd.read_csv("ENAHO_P65_202306.csv", encoding="latin-1")
+		
+		for col in df.select_dtypes(include=['number']).columns:
+		if df[col].isnull().sum() > 0:
+		df[col].fillna(df[col].median(), inplace=True)
+		
+		for col in df.select_dtypes(include=['object']).columns:
+		if df[col].isnull().sum() > 0:
+		df[col].fillna(df[col].mode()[0], inplace=True)
+		
+		print(df.isnull().sum())
+	\end{lstlisting}
+	Link del programa: \href{https://bit.ly/3QCam9c}{https://bit.ly/3QCam9c}
+	
+	\subsection{Codificaci\'on de Variables Categ\'oricas}
+	Convertimos las variables categ\'oricas a formato num\'erico utilizando One-Hot Encoding:
+	
+	\begin{lstlisting}[caption=Codificaci\'on de Variables Categ\'oricas]
+		import pandas as pd
+		
+		df = pd.read_csv("ENAHO_P65_202306.csv", encoding="latin-1")
+		
+		df.fillna(df.mean(numeric_only=True), inplace=True)
+		
+		categorical_cols = df.select_dtypes(include=['object']).columns
+		df = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
+		
+		df.to_csv("ENAHO_P65_202306_clean.csv", index=False)
+		print("Preprocesamiento completado y guardado en 'ENAHO_P65_202306_clean.csv'")
+	\end{lstlisting}
+	Link del programa: \href{https://bit.ly/4bgtzXs}{https://bit.ly/4bgtzXs}
+	
+	\subsection{Escalado de Variables Num\'ericas}
+	Estandarizamos las variables num\'ericas para mejorar el rendimiento de los modelos:
+	
+	\begin{lstlisting}[caption=Escalado de Variables Num\'ericas]
+		import pandas as pd
+		from sklearn.preprocessing import StandardScaler
+		
+		df = pd.read_csv("ENAHO_P65_202306.csv", encoding="latin-1")
+		
+		for col in df.columns:
+		df[col] = pd.to_numeric(df[col], errors='coerce')
+		
+		df.fillna(df.mean(numeric_only=True), inplace=True)
+		
+		num_cols = df.select_dtypes(include=['number']).columns
+		
+		if len(num_cols) == 0:
+		print("No hay columnas numéricas para escalar. Revisa el contenido del DataFrame con df.info()")
+		else:
+		scaler = StandardScaler()
+		df[num_cols] = scaler.fit_transform(df[num_cols])
+		df.to_csv("ENAHO_P65_202306_scaled.csv", index=False)
+		print("Escalado completado y guardado en 'ENAHO_P65_202306_scaled.csv'")
+	\end{lstlisting}
+	Link del programa: \href{https://bit.ly/4be6NPT}{https://bit.ly/4be6NPT}
+	
+	\subsection{Modelos Predictivos}
+	Se implementan algunos modelos de aprendizaje autom\'atico para clasificaci\'on y regresi\'on:
+	
+	\begin{lstlisting}[caption=Regresi\'on Log\'istica]
+		from sklearn.linear_model import LogisticRegression
+		from sklearn.model_selection import train_test_split
+		
+		X = df.drop(columns=['target_variable'])
+		y = df['target_variable']
+		
+		X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+		
+		model = LogisticRegression()
+		model.fit(X_train, y_train)
+		
+		y_pred = model.predict(X_test)
+	\end{lstlisting}
+	Link del programa: \href{https://bit.ly/3QC2Z1o}{https://bit.ly/3QC2Z1o}
+	\section{Conclusión}
+	Este capítulo mostró la importancia de la optimización en modelos de clasificación y regresión utilizando datos de ENAHO. A lo largo del análisis, se abordaron desde el preprocesamiento hasta la evaluación de los modelos, explorando técnicas clave como la limpieza de datos, la ingeniería de características y la selección de hiperparámetros mediante Grid Search, Random Search y optimización bayesiana. También se destacó la relevancia de elegir métricas adecuadas para medir el rendimiento de los modelos. La combinación de estas estrategias permitió desarrollar modelos más precisos, eficientes y generalizables, facilitando análisis predictivos con un impacto real en la toma de decisiones basadas en datos.
+\begin{thebibliography}{}
+	
+	\bibitem{1}
+	Hastie, T., Tibshirani, R., Friedman, J. (2009). 
+	\textit{The Elements of Statistical Learning: Data Mining, Inference, and Prediction}. 
+	Springer.
+	
+	\bibitem{2}
+	Herrera, J. (2004). 
+	\textit{Análisis de la Pobreza en el Perú: Una Aproximación con Datos de la ENAHO}. 
+	Documento de Trabajo. Disponible en ResearchGate.
+	
+	\bibitem{3}
+	INEI. (2023). 
+	\textit{Encuesta Nacional de Hogares (ENAHO)}. 
+	Disponible en: \url{https://www.inei.gob.pe/estadisticas/encuesta-nacional-de-hogares/}. Consultado en octubre de 2023.
+	
+	\bibitem{4}
+	Ramos, R., Balló, E., Marrugat. (2011). 
+	\textit{Validez del Sistema de Información para el Desarrollo de la Investigación en Atención Primaria (SIDIAP) en el estudio de enfermedades vasculares: estudio EMMA}. 
+	Revista Española de Cardiología, 64(5), 373-381.
+	
+	\bibitem{5}
+	Bertsimas, D., Shioda, R. (2007). 
+	\textit{Classification and regression via integer optimization}. 
+	Operations Research, 55(2), 252-271.
+	
+	\bibitem{6}
+	Carrizosa, E., Molero-Río, C., Morales, D. R. (2021). 
+	\textit{Mathematical optimization in classification and regression trees}. 
+	Top, 29(1), 5-33.
+	
+	\bibitem{7}
+	Satapathy, S. C., Murthy, J. V. R., Reddy, P. V. G. D. P., Misra, B. B., Dash, P. K., Panda, G. (2008). 
+	\textit{Particle swarm optimized multiple regression linear model for data classification}. 
+	Applied Soft Computing, 9(2), 470-476.
+	
+	\bibitem{8}
+	Shi, L., Fu, Y., Yang, R.-J., Wang, B.-P., Zhu, P. (2013). 
+	\textit{Selection of initial designs for multi-objective optimization using classification and regression tree}. 
+	Structural and Multidisciplinary Optimization, 48(6), 1057-1073.
+	
+	\bibitem{9}
+	Frohlich, H., Zell, A. (2006). 
+	\textit{Efficient parameter selection for support vector machines in classification and regression via model-based global optimization}. 
+	Proceedings of the IEEE International Joint Conference on Neural Networks.
+	
+	\bibitem{10}
+	Zhang, L., Mistry, K., Lim, C. P., Neoh, S. C. (2017). 
+	\textit{Feature selection using firefly optimization for classification and regression models}. 
+	Decision Support Systems, 106, 64-85.
+	
+	\bibitem{11}
+	Arafa, A. A., Radad, M., Badawy, M., El-Fishawy, N. (2022). 
+	\textit{Logistic regression hyperparameter optimization for cancer classification}. 
+	Menoufia Journal of Electronic Engineering Research.
+	
+	\bibitem{12}
+	Mohapatra, P., Chakravarty, S., Dash, P. K. (2016). 
+	\textit{Microarray medical data classification using kernel ridge regression and modified cat swarm optimization based gene selection system}. 
+	Swarm and Evolutionary Computation, 28, 144-160.
+	
+	\bibitem{13}
+	Unknown Author. (2019). 
+	\textit{Logistic regression model optimization and case analysis}. 
+	Disponible en: \url{https://ieeexplore.ieee.org/document/8962457}.
+	
+	\bibitem{14}
+	Rose, K. (1998). 
+	\textit{Deterministic annealing for clustering, compression, classification, regression, and related optimization problems}. 
+	Proceedings of the IEEE, 86(11), 2210-2239.
+	
+	\bibitem{15}
+	Zhou, Y.-P., Tang, L.-J., Jiao, J., Song, D.-D., Jiang, J.-H., Yu, R.-Q. (2009). 
+	\textit{Modified particle swarm optimization algorithm for adaptively configuring globally optimal classification and regression trees}. 
+	Journal of Chemical Information and Modeling, 49(5), 1144-1153.
+	
+\end{thebibliography}
+
+
+\end{document}

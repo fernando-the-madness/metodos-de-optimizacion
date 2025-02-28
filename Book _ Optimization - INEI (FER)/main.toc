@@ -1,0 +1,799 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Fundamentos Matemáticos de la Optimización para la Ciencia de Datos}{16}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Cálculo y Álgebra Lineal}{16}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Álgebra Lineal}{16}{subsection.1.1.1}%
+\contentsline {subsubsection}{Vectores y Matrices}{16}{section*.3}%
+\contentsline {subsubsection}{Operaciones con Matrices}{17}{section*.4}%
+\contentsline {subsubsection}{Ejemplo de Optimización: Problema de Mínimos Cuadrados}{17}{section*.5}%
+\contentsline {paragraph}{Resolución Manual:}{18}{section*.6}%
+\contentsline {paragraph}{Resolución con Python:}{18}{section*.7}%
+\contentsline {paragraph}{Interpretación de los Resultados:}{19}{section*.8}%
+\contentsline {section}{\numberline {1.2}Cálculo Diferencial}{20}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Derivadas}{20}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Gradiente}{20}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Ejemplo: Cálculo de Derivada y Gradiente}{21}{subsection.1.2.3}%
+\contentsline {paragraph}{Ejemplo de Derivada (Función de Una Variable):}{21}{section*.9}%
+\contentsline {paragraph}{Ejemplo de Gradiente (Función de Dos Variables):}{21}{section*.10}%
+\contentsline {section}{\numberline {1.3}Convexidad y Optimización}{23}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Conjuntos Convexos}{23}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Funciones Convexas}{23}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Optimización Convexa}{24}{subsection.1.3.3}%
+\contentsline {subsubsection}{Ejemplo Práctico: Minimización de una Función Cuadrática}{24}{section*.11}%
+\contentsline {section}{\numberline {1.4}Dualidad y Condiciones de Optimalidad}{25}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Multiplicadores de Lagrange y Restricciones}{28}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Formulación de Lagrange}{28}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Condiciones de Optimalidad}{28}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}Interpretación Geométrica}{28}{subsection.1.5.3}%
+\contentsline {subsection}{\numberline {1.5.4}Extensiones a Múltiples Restricciones}{28}{subsection.1.5.4}%
+\contentsline {section}{\numberline {1.6}Ejemplo 1: Optimización de una Función Cuadrática con Restricción}{29}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Ejemplo 2: Maximización de \( f(x,y) = xy \) Sujeto a \( x^2 + y^2 = 1 \)}{30}{section.1.7}%
+\contentsline {section}{\numberline {1.8}Probabilidad y Estadística para Métodos Estocásticos}{32}{section.1.8}%
+\contentsline {subsection}{\numberline {1.8.1}Conceptos Básicos de Probabilidad}{32}{subsection.1.8.1}%
+\contentsline {subsubsection}{Variable Aleatoria}{32}{section*.12}%
+\contentsline {subsubsection}{Distribuciones de Probabilidad}{32}{section*.13}%
+\contentsline {subsection}{\numberline {1.8.2}Estadística Descriptiva}{33}{subsection.1.8.2}%
+\contentsline {subsubsection}{Media y Mediana}{33}{section*.14}%
+\contentsline {subsubsection}{Varianza y Desviación Estándar}{33}{section*.15}%
+\contentsline {subsection}{\numberline {1.8.3}Inferencia Estadística}{33}{subsection.1.8.3}%
+\contentsline {subsubsection}{Estimación de Parámetros}{34}{section*.16}%
+\contentsline {subsubsection}{Pruebas de Hipótesis}{34}{section*.17}%
+\contentsline {subsection}{\numberline {1.8.4}Aplicaciones en Métodos Estocásticos}{34}{subsection.1.8.4}%
+\contentsline {section}{\numberline {1.9}Optimización Estocástica}{34}{section.1.9}%
+\contentsline {subsection}{\numberline {1.9.1}Ejemplo 3: Optimización con Stochastic Gradient Descent (SGD)}{34}{subsection.1.9.1}%
+\contentsline {subsection}{\numberline {1.9.2}Ejemplo 4: Optimización con Simulated Annealing}{36}{subsection.1.9.2}%
+\contentsline {section}{\numberline {1.10}Ejemplos Prácticos}{38}{section.1.10}%
+\contentsline {subsection}{\numberline {1.10.1}Caso 1: Cálculo Diferencial - Gradiente y Optimización}{38}{subsection.1.10.1}%
+\contentsline {subsubsection}{Interpretación}{39}{section*.19}%
+\contentsline {subsection}{\numberline {1.10.2}Caso 2: Álgebra Lineal - Predicción del Puntaje}{39}{subsection.1.10.2}%
+\contentsline {subsubsection}{Interpretación}{40}{section*.20}%
+\contentsline {subsection}{\numberline {1.10.3}Caso 3: Estadística Descriptiva}{40}{subsection.1.10.3}%
+\contentsline {subsubsection}{Interpretación}{41}{section*.21}%
+\contentsline {subsection}{\numberline {1.10.4}Caso 4: Optimización Convexa}{41}{subsection.1.10.4}%
+\contentsline {subsubsection}{Interpretación}{41}{section*.22}%
+\contentsline {chapter}{\numberline {2}Optimización Estocástica: Algoritmos y sus Aplicaciones}{43}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Optimización Convexa y No Convexa en Ciencia de Datos a Gran Escala}{73}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Fundamentos de la Optimización}{73}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Introducción a la Optimización}{73}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Componentes de los problemas de optimización}{74}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Función objetivo}{74}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Restricciones}{74}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Variables de decisión}{74}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Ejemplo práctico}{75}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}Tipos de problemas de optimización}{75}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Optimización convexa vs. no convexa}{75}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Optimización lineal vs. no lineal}{76}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Optimización continua vs. discreta}{76}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Otros tipos de optimización}{76}{subsection.3.3.4}%
+\contentsline {section}{\numberline {3.4}Relevancia en la ciencia de datos}{77}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Aprendizaje automático y ajuste de modelos}{77}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Reducción de dimensionalidad}{77}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Clustering y segmentación}{77}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Optimización en redes neuronales profundas}{78}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Aplicaciones prácticas}{78}{subsection.3.4.5}%
+\contentsline {section}{\numberline {3.5}Optimización Convexa}{78}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Conceptos clave}{78}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Conjuntos convexos}{78}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Funciones convexas}{79}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Propiedades importantes}{79}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}Ejemplo práctico}{79}{subsection.3.5.5}%
+\contentsline {section}{\numberline {3.6}Condiciones de optimalidad}{80}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Condiciones de primer orden}{80}{subsection.3.6.1}%
+\contentsline {subsubsection}{Con restricciones de igualdad y desigualdad}{80}{section*.85}%
+\contentsline {subsection}{\numberline {3.6.2}Condiciones de segundo orden}{81}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}Ejemplo práctico}{81}{subsection.3.6.3}%
+\contentsline {section}{\numberline {3.7}Algoritmos de optimización convexa}{81}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Descenso de gradiente}{81}{subsection.3.7.1}%
+\contentsline {subsubsection}{Ejemplo práctico}{82}{section*.86}%
+\contentsline {subsection}{\numberline {3.7.2}Métodos de punto interior}{82}{subsection.3.7.2}%
+\contentsline {subsubsection}{Ejemplo práctico}{82}{section*.87}%
+\contentsline {subsection}{\numberline {3.7.3}Programación lineal: Método simplex y dualidad}{83}{subsection.3.7.3}%
+\contentsline {subsection}{\numberline {3.7.4}Comparación de algoritmos}{83}{subsection.3.7.4}%
+\contentsline {section}{\numberline {3.8}Optimización No Convexa}{83}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Naturaleza de los Problemas No Convexos}{83}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Paisajes no convexos}{83}{subsection.3.8.2}%
+\contentsline {subsection}{\numberline {3.8.3}Características de los paisajes no convexos}{84}{subsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.8.4}Ejemplo ilustrativo}{84}{subsection.3.8.4}%
+\contentsline {subsection}{\numberline {3.8.5}Implicaciones en la optimización}{84}{subsection.3.8.5}%
+\contentsline {subsection}{\numberline {3.8.6}Aplicaciones en el mundo real}{85}{subsection.3.8.6}%
+\contentsline {subsection}{\numberline {3.8.7}Desafíos y estrategias}{85}{subsection.3.8.7}%
+\contentsline {section}{\numberline {3.9}Optimización global vs. local}{86}{section.3.9}%
+\contentsline {subsection}{\numberline {3.9.1}Optimización local}{86}{subsection.3.9.1}%
+\contentsline {subsection}{\numberline {3.9.2}Optimización global}{86}{subsection.3.9.2}%
+\contentsline {subsection}{\numberline {3.9.3}Diferencias clave}{87}{subsection.3.9.3}%
+\contentsline {subsection}{\numberline {3.9.4}Ejemplo ilustrativo}{87}{subsection.3.9.4}%
+\contentsline {subsection}{\numberline {3.9.5}Estrategias para optimización global}{87}{subsection.3.9.5}%
+\contentsline {section}{\numberline {3.10}Aplicaciones en ciencia de datos}{88}{section.3.10}%
+\contentsline {subsection}{\numberline {3.10.1}Entrenamiento de redes neuronales profundas}{88}{subsection.3.10.1}%
+\contentsline {subsection}{\numberline {3.10.2}Reducción de dimensionalidad}{88}{subsection.3.10.2}%
+\contentsline {subsection}{\numberline {3.10.3}Clustering y segmentación de datos}{89}{subsection.3.10.3}%
+\contentsline {subsection}{\numberline {3.10.4}Optimización en modelos de aprendizaje automático}{89}{subsection.3.10.4}%
+\contentsline {subsection}{\numberline {3.10.5}Selección de características}{89}{subsection.3.10.5}%
+\contentsline {subsection}{\numberline {3.10.6}Aplicaciones prácticas}{90}{subsection.3.10.6}%
+\contentsline {section}{\numberline {3.11}Algoritmos de Optimización No Convexa}{90}{section.3.11}%
+\contentsline {subsection}{\numberline {3.11.1}Métodos basados en gradiente}{90}{subsection.3.11.1}%
+\contentsline {subsection}{\numberline {3.11.2}Descenso de gradiente clásico}{91}{subsection.3.11.2}%
+\contentsline {subsection}{\numberline {3.11.3}Descenso de gradiente estocástico (SGD)}{91}{subsection.3.11.3}%
+\contentsline {subsection}{\numberline {3.11.4}Métodos adaptativos}{92}{subsection.3.11.4}%
+\contentsline {subsection}{\numberline {3.11.5}Comparación de métodos}{92}{subsection.3.11.5}%
+\contentsline {section}{\numberline {3.12}Técnicas de búsqueda global}{93}{section.3.12}%
+\contentsline {subsection}{\numberline {3.12.1}Recocido simulado}{93}{subsection.3.12.1}%
+\contentsline {subsection}{\numberline {3.12.2}Algoritmos genéticos}{93}{subsection.3.12.2}%
+\contentsline {subsection}{\numberline {3.12.3}Optimización por enjambre de partículas}{94}{subsection.3.12.3}%
+\contentsline {subsection}{\numberline {3.12.4}Búsqueda por colonia de hormigas}{94}{subsection.3.12.4}%
+\contentsline {subsection}{\numberline {3.12.5}Diferencias clave entre los métodos}{95}{subsection.3.12.5}%
+\contentsline {subsection}{\numberline {3.12.6}Aplicaciones en ciencia de datos}{95}{subsection.3.12.6}%
+\contentsline {section}{\numberline {3.13}Regularización y técnicas para evitar sobreajuste}{95}{section.3.13}%
+\contentsline {subsection}{\numberline {3.13.1}Regularización \(L_1\) y \(L_2\)}{96}{subsection.3.13.1}%
+\contentsline {subsection}{\numberline {3.13.2}Dropout en redes neuronales}{96}{subsection.3.13.2}%
+\contentsline {subsection}{\numberline {3.13.3}Early Stopping}{97}{subsection.3.13.3}%
+\contentsline {subsection}{\numberline {3.13.4}Normalización y estandarización de datos}{97}{subsection.3.13.4}%
+\contentsline {subsection}{\numberline {3.13.5}Aumento de datos}{98}{subsection.3.13.5}%
+\contentsline {subsection}{\numberline {3.13.6}Regularización en modelos de redes neuronales profundas}{98}{subsection.3.13.6}%
+\contentsline {section}{\numberline {3.14}Optimización a Gran Escala}{99}{section.3.14}%
+\contentsline {subsection}{\numberline {3.14.1}Retos de la Optimización con Datos Masivos}{99}{subsection.3.14.1}%
+\contentsline {subsection}{\numberline {3.14.2}Manejo de memoria}{99}{subsection.3.14.2}%
+\contentsline {subsection}{\numberline {3.14.3}Representación eficiente de datos}{99}{subsection.3.14.3}%
+\contentsline {subsection}{\numberline {3.14.4}Computación en lotes (Mini-batch processing)}{99}{subsection.3.14.4}%
+\contentsline {subsection}{\numberline {3.14.5}Uso de precisión reducida}{100}{subsection.3.14.5}%
+\contentsline {subsection}{\numberline {3.14.6}Memoria fuera de núcleo (Out-of-core computing)}{100}{subsection.3.14.6}%
+\contentsline {subsection}{\numberline {3.14.7}Caching y reutilización de memoria}{100}{subsection.3.14.7}%
+\contentsline {subsection}{\numberline {3.14.8}Uso de hardware especializado}{101}{subsection.3.14.8}%
+\contentsline {subsection}{\numberline {3.14.9}Comparación de estrategias}{101}{subsection.3.14.9}%
+\contentsline {section}{\numberline {3.15}Escalabilidad computacional}{102}{section.3.15}%
+\contentsline {subsection}{\numberline {3.15.1}Paralelización de algoritmos}{102}{subsection.3.15.1}%
+\contentsline {subsection}{\numberline {3.15.2}Distribución de datos}{102}{subsection.3.15.2}%
+\contentsline {subsection}{\numberline {3.15.3}Reducción de la complejidad algorítmica}{103}{subsection.3.15.3}%
+\contentsline {subsection}{\numberline {3.15.4}Optimización del hardware}{103}{subsection.3.15.4}%
+\contentsline {subsection}{\numberline {3.15.5}Técnicas de particionamiento de datos}{103}{subsection.3.15.5}%
+\contentsline {subsection}{\numberline {3.15.6}Balanceo de carga}{104}{subsection.3.15.6}%
+\contentsline {subsection}{\numberline {3.15.7}Reducción de la comunicación entre nodos}{104}{subsection.3.15.7}%
+\contentsline {subsection}{\numberline {3.15.8}Ejemplo práctico: Entrenamiento distribuido de redes neuronales}{104}{subsection.3.15.8}%
+\contentsline {subsection}{\numberline {3.15.9}Conclusión}{104}{subsection.3.15.9}%
+\contentsline {section}{\numberline {3.16}Optimización distribuida}{105}{section.3.16}%
+\contentsline {subsection}{\numberline {3.16.1}Fundamentos de la optimización distribuida}{105}{subsection.3.16.1}%
+\contentsline {subsection}{\numberline {3.16.2}Métodos de optimización distribuida}{105}{subsection.3.16.2}%
+\contentsline {subsubsection}{Algoritmo de consenso}{105}{section*.88}%
+\contentsline {subsubsection}{Método ADMM (Alternating Direction Method of Multipliers)}{106}{section*.89}%
+\contentsline {subsubsection}{Descenso de gradiente distribuido}{106}{section*.90}%
+\contentsline {subsection}{\numberline {3.16.3}Desafíos en la optimización distribuida}{107}{subsection.3.16.3}%
+\contentsline {subsection}{\numberline {3.16.4}Aplicaciones de la optimización distribuida}{107}{subsection.3.16.4}%
+\contentsline {section}{\numberline {3.17}Algoritmos y Herramientas para Optimización a Gran Escala}{107}{section.3.17}%
+\contentsline {subsection}{\numberline {3.17.1}Optimización distribuida}{107}{subsection.3.17.1}%
+\contentsline {subsection}{\numberline {3.17.2}Fundamentos de la optimización distribuida}{108}{subsection.3.17.2}%
+\contentsline {subsection}{\numberline {3.17.3}Métodos de optimización distribuida}{108}{subsection.3.17.3}%
+\contentsline {subsubsection}{Algoritmo de consenso}{108}{section*.91}%
+\contentsline {subsubsection}{Método ADMM (Alternating Direction Method of Multipliers)}{108}{section*.92}%
+\contentsline {subsubsection}{Descenso de gradiente distribuido}{109}{section*.93}%
+\contentsline {subsection}{\numberline {3.17.4}Desafíos en la optimización distribuida}{109}{subsection.3.17.4}%
+\contentsline {subsection}{\numberline {3.17.5}Aplicaciones de la optimización distribuida}{110}{subsection.3.17.5}%
+\contentsline {section}{\numberline {3.18}Algoritmos distribuidos}{110}{section.3.18}%
+\contentsline {subsection}{\numberline {3.18.1}Fundamentos de los algoritmos distribuidos}{110}{subsection.3.18.1}%
+\contentsline {subsection}{\numberline {3.18.2}Métodos principales}{111}{subsection.3.18.2}%
+\contentsline {subsubsection}{Descenso de gradiente distribuido}{111}{section*.94}%
+\contentsline {subsubsection}{Método de consenso}{111}{section*.95}%
+\contentsline {subsubsection}{Método ADMM}{111}{section*.96}%
+\contentsline {subsection}{\numberline {3.18.3}Desafíos en algoritmos distribuidos}{112}{subsection.3.18.3}%
+\contentsline {subsection}{\numberline {3.18.4}Aplicaciones de los algoritmos distribuidos}{112}{subsection.3.18.4}%
+\contentsline {subsection}{\numberline {3.18.5}Ejemplo práctico: Entrenamiento distribuido en TensorFlow}{113}{subsection.3.18.5}%
+\contentsline {section}{\numberline {3.19}Aprendizaje federado}{113}{section.3.19}%
+\contentsline {subsection}{\numberline {3.19.1}Fundamentos del aprendizaje federado}{114}{subsection.3.19.1}%
+\contentsline {subsection}{\numberline {3.19.2}Algoritmo FedAvg (Federated Averaging)}{114}{subsection.3.19.2}%
+\contentsline {subsection}{\numberline {3.19.3}Ventajas del aprendizaje federado}{115}{subsection.3.19.3}%
+\contentsline {subsection}{\numberline {3.19.4}Desafíos en el aprendizaje federado}{115}{subsection.3.19.4}%
+\contentsline {subsection}{\numberline {3.19.5}Aplicaciones del aprendizaje federado}{116}{subsection.3.19.5}%
+\contentsline {subsection}{\numberline {3.19.6}Ejemplo práctico: Implementación en TensorFlow}{116}{subsection.3.19.6}%
+\contentsline {section}{\numberline {3.20}Herramientas prácticas}{117}{section.3.20}%
+\contentsline {subsection}{\numberline {3.20.1}Bibliotecas para optimización en aprendizaje automático}{117}{subsection.3.20.1}%
+\contentsline {subsection}{\numberline {3.20.2}Plataformas de computación distribuida}{117}{subsection.3.20.2}%
+\contentsline {subsection}{\numberline {3.20.3}Herramientas para aprendizaje federado}{118}{subsection.3.20.3}%
+\contentsline {subsection}{\numberline {3.20.4}Frameworks para la optimización de hiperparámetros}{118}{subsection.3.20.4}%
+\contentsline {subsection}{\numberline {3.20.5}Ejemplo práctico: Uso de Optuna para optimización de hiperparámetros}{119}{subsection.3.20.5}%
+\contentsline {section}{\numberline {3.21}Aplicaciones de la Optimización en Ciencia de Datos}{120}{section.3.21}%
+\contentsline {subsection}{\numberline {3.21.1}Aprendizaje Supervisado}{120}{subsection.3.21.1}%
+\contentsline {subsection}{\numberline {3.21.2}Regresión lineal, no lineal y polinomial}{120}{subsection.3.21.2}%
+\contentsline {subsection}{\numberline {3.21.3}Regresión lineal}{120}{subsection.3.21.3}%
+\contentsline {subsection}{\numberline {3.21.4}Regresión no lineal}{121}{subsection.3.21.4}%
+\contentsline {subsection}{\numberline {3.21.5}Regresión polinomial}{121}{subsection.3.21.5}%
+\contentsline {subsection}{\numberline {3.21.6}Comparación de los métodos}{122}{subsection.3.21.6}%
+\contentsline {subsection}{\numberline {3.21.7}Ejemplo práctico: Implementación en Python}{122}{subsection.3.21.7}%
+\contentsline {section}{\numberline {3.22}Clasificación}{123}{section.3.22}%
+\contentsline {subsection}{\numberline {3.22.1}Fundamentos de la clasificación}{123}{subsection.3.22.1}%
+\contentsline {subsection}{\numberline {3.22.2}Métodos de clasificación}{124}{subsection.3.22.2}%
+\contentsline {subsubsection}{Regresión logística}{124}{section*.97}%
+\contentsline {subsubsection}{Máquinas de soporte vectorial (SVM)}{124}{section*.98}%
+\contentsline {subsubsection}{Árboles de decisión y Random Forest}{125}{section*.99}%
+\contentsline {subsubsection}{Redes neuronales}{125}{section*.100}%
+\contentsline {subsection}{\numberline {3.22.3}Métricas de evaluación}{125}{subsection.3.22.3}%
+\contentsline {subsection}{\numberline {3.22.4}Ejemplo práctico: Clasificación con Random Forest}{126}{subsection.3.22.4}%
+\contentsline {section}{\numberline {3.23}Redes neuronales profundas}{126}{section.3.23}%
+\contentsline {subsection}{\numberline {3.23.1}Arquitectura de una red neuronal profunda}{127}{subsection.3.23.1}%
+\contentsline {subsection}{\numberline {3.23.2}Funciones de activación}{127}{subsection.3.23.2}%
+\contentsline {subsection}{\numberline {3.23.3}Proceso de entrenamiento}{127}{subsection.3.23.3}%
+\contentsline {subsection}{\numberline {3.23.4}Técnicas para mejorar el entrenamiento}{128}{subsection.3.23.4}%
+\contentsline {subsection}{\numberline {3.23.5}Redes neuronales convolucionales (CNNs)}{128}{subsection.3.23.5}%
+\contentsline {subsection}{\numberline {3.23.6}Redes neuronales recurrentes (RNNs)}{129}{subsection.3.23.6}%
+\contentsline {subsection}{\numberline {3.23.7}Ejemplo práctico: Implementación en TensorFlow}{129}{subsection.3.23.7}%
+\contentsline {section}{\numberline {3.24}Análisis Exploratorio y Reducción de Dimensionalidad}{130}{section.3.24}%
+\contentsline {subsection}{\numberline {3.24.1}Clustering}{130}{subsection.3.24.1}%
+\contentsline {subsection}{\numberline {3.24.2}Fundamentos del clustering}{130}{subsection.3.24.2}%
+\contentsline {subsection}{\numberline {3.24.3}Algoritmos de clustering}{130}{subsection.3.24.3}%
+\contentsline {subsubsection}{K-means}{130}{section*.101}%
+\contentsline {subsubsection}{Clustering jerárquico}{131}{section*.102}%
+\contentsline {subsubsection}{DBSCAN (Density-Based Spatial Clustering of Applications with Noise)}{131}{section*.103}%
+\contentsline {subsection}{\numberline {3.24.4}Métricas de evaluación del clustering}{132}{subsection.3.24.4}%
+\contentsline {subsection}{\numberline {3.24.5}Ejemplo práctico: Implementación en Python}{132}{subsection.3.24.5}%
+\contentsline {section}{\numberline {3.25}Reducción de dimensionalidad}{133}{section.3.25}%
+\contentsline {subsection}{\numberline {3.25.1}Fundamentos de la reducción de dimensionalidad}{133}{subsection.3.25.1}%
+\contentsline {subsection}{\numberline {3.25.2}Métodos de reducción de dimensionalidad}{133}{subsection.3.25.2}%
+\contentsline {subsubsection}{Análisis de Componentes Principales (PCA)}{134}{section*.104}%
+\contentsline {subsubsection}{Análisis de Componentes Independientes (ICA)}{134}{section*.105}%
+\contentsline {subsubsection}{t-Distributed Stochastic Neighbor Embedding (t-SNE)}{135}{section*.106}%
+\contentsline {subsubsection}{Mapeo Isométrico (Isomap)}{135}{section*.107}%
+\contentsline {subsection}{\numberline {3.25.3}Comparación de métodos}{135}{subsection.3.25.3}%
+\contentsline {subsection}{\numberline {3.25.4}Ejemplo práctico: Aplicación de PCA en Python}{136}{subsection.3.25.4}%
+\contentsline {section}{\numberline {3.26}Minería de datos}{136}{section.3.26}%
+\contentsline {subsection}{\numberline {3.26.1}Fundamentos de la minería de datos}{136}{subsection.3.26.1}%
+\contentsline {subsection}{\numberline {3.26.2}Técnicas de minería de datos}{137}{subsection.3.26.2}%
+\contentsline {subsubsection}{Reglas de asociación}{137}{section*.108}%
+\contentsline {subsubsection}{Análisis de datos secuenciales}{138}{section*.109}%
+\contentsline {subsubsection}{Detección de anomalías}{138}{section*.110}%
+\contentsline {subsection}{\numberline {3.26.3}Herramientas y bibliotecas para minería de datos}{138}{subsection.3.26.3}%
+\contentsline {subsection}{\numberline {3.26.4}Ejemplo práctico: Implementación de reglas de asociación en Python}{139}{subsection.3.26.4}%
+\contentsline {subsection}{\numberline {3.26.5}Aplicaciones de la minería de datos}{139}{subsection.3.26.5}%
+\contentsline {section}{\numberline {3.27}Optimización en Modelado Predictivo}{140}{section.3.27}%
+\contentsline {subsection}{\numberline {3.27.1}Series temporales}{140}{subsection.3.27.1}%
+\contentsline {subsection}{\numberline {3.27.2}Fundamentos de las series temporales}{140}{subsection.3.27.2}%
+\contentsline {subsection}{\numberline {3.27.3}Modelos para el análisis de series temporales}{141}{subsection.3.27.3}%
+\contentsline {subsubsection}{Modelos autorregresivos (AR)}{141}{section*.111}%
+\contentsline {subsubsection}{Modelos de media móvil (MA)}{141}{section*.112}%
+\contentsline {subsubsection}{Modelos ARMA y ARIMA}{141}{section*.113}%
+\contentsline {subsubsection}{Modelos SARIMA y modelos con exógenos (SARIMAX)}{142}{section*.114}%
+\contentsline {subsubsection}{Redes neuronales para series temporales}{142}{section*.115}%
+\contentsline {subsection}{\numberline {3.27.4}Evaluación de modelos de series temporales}{142}{subsection.3.27.4}%
+\contentsline {subsection}{\numberline {3.27.5}Ejemplo práctico: Predicción con ARIMA en Python}{143}{subsection.3.27.5}%
+\contentsline {section}{\numberline {3.28}Modelos de riesgo y portafolios}{143}{section.3.28}%
+\contentsline {subsection}{\numberline {3.28.1}Fundamentos de la gestión de riesgo}{144}{subsection.3.28.1}%
+\contentsline {subsection}{\numberline {3.28.2}Teoría moderna de portafolios}{144}{subsection.3.28.2}%
+\contentsline {subsubsection}{Frontera eficiente}{145}{section*.116}%
+\contentsline {subsection}{\numberline {3.28.3}Medición del riesgo financiero}{145}{subsection.3.28.3}%
+\contentsline {subsubsection}{Valor en Riesgo (VaR)}{145}{section*.117}%
+\contentsline {subsubsection}{Condicional Value at Risk (CVaR)}{145}{section*.118}%
+\contentsline {subsection}{\numberline {3.28.4}Modelos de optimización de portafolios}{145}{subsection.3.28.4}%
+\contentsline {subsubsection}{Optimización media-varianza}{146}{section*.119}%
+\contentsline {subsubsection}{Modelo de Black-Litterman}{146}{section*.120}%
+\contentsline {subsection}{\numberline {3.28.5}Ejemplo práctico: Optimización de portafolio en Python}{146}{subsection.3.28.5}%
+\contentsline {section}{\numberline {3.29}Simulación y optimización}{147}{section.3.29}%
+\contentsline {subsection}{\numberline {3.29.1}Fundamentos de la simulación}{147}{subsection.3.29.1}%
+\contentsline {subsection}{\numberline {3.29.2}Método de Monte Carlo}{148}{subsection.3.29.2}%
+\contentsline {subsection}{\numberline {3.29.3}Optimización estocástica}{148}{subsection.3.29.3}%
+\contentsline {subsection}{\numberline {3.29.4}Ejemplo práctico: Simulación de Monte Carlo en finanzas}{149}{subsection.3.29.4}%
+\contentsline {subsection}{\numberline {3.29.5}Simulación en optimización de portafolios}{150}{subsection.3.29.5}%
+\contentsline {section}{\numberline {3.30}Tendencias Futuras en Optimización}{151}{section.3.30}%
+\contentsline {subsection}{\numberline {3.30.1}Optimización Robusta}{151}{subsection.3.30.1}%
+\contentsline {subsection}{\numberline {3.30.2}Manejo de incertidumbre y datos ruidosos}{151}{subsection.3.30.2}%
+\contentsline {subsection}{\numberline {3.30.3}Fuentes de incertidumbre y ruido en los datos}{151}{subsection.3.30.3}%
+\contentsline {subsection}{\numberline {3.30.4}Técnicas para el manejo de incertidumbre}{152}{subsection.3.30.4}%
+\contentsline {subsubsection}{Suavizado de datos}{152}{section*.121}%
+\contentsline {subsubsection}{Manejo de datos faltantes}{152}{section*.122}%
+\contentsline {subsubsection}{Métodos de regularización}{152}{section*.123}%
+\contentsline {subsection}{\numberline {3.30.5}Optimización robusta bajo incertidumbre}{153}{subsection.3.30.5}%
+\contentsline {subsection}{\numberline {3.30.6}Ejemplo práctico: Suavizado de series temporales en Python}{153}{subsection.3.30.6}%
+\contentsline {subsection}{\numberline {3.30.7}Aplicaciones del manejo de incertidumbre}{154}{subsection.3.30.7}%
+\contentsline {section}{\numberline {3.31}Regularización avanzada para modelos robustos}{154}{section.3.31}%
+\contentsline {subsection}{\numberline {3.31.1}Fundamentos de la regularización}{155}{subsection.3.31.1}%
+\contentsline {subsection}{\numberline {3.31.2}Regularización \( L_1 \) y \( L_2 \)}{155}{subsection.3.31.2}%
+\contentsline {subsubsection}{Regularización Ridge (\( L_2 \))}{155}{section*.124}%
+\contentsline {subsubsection}{Regularización Lasso (\( L_1 \))}{155}{section*.125}%
+\contentsline {subsubsection}{Regularización elástica (Elastic Net)}{156}{section*.126}%
+\contentsline {subsection}{\numberline {3.31.3}Regularización en redes neuronales}{156}{subsection.3.31.3}%
+\contentsline {subsubsection}{Dropout}{156}{section*.127}%
+\contentsline {subsubsection}{Batch Normalization}{156}{section*.128}%
+\contentsline {subsection}{\numberline {3.31.4}Regularización basada en datos adversariales}{157}{subsection.3.31.4}%
+\contentsline {subsection}{\numberline {3.31.5}Ejemplo práctico: Aplicación de regularización en Python}{157}{subsection.3.31.5}%
+\contentsline {subsection}{\numberline {3.31.6}Comparación de métodos de regularización}{158}{subsection.3.31.6}%
+\contentsline {section}{\numberline {3.32}Optimización con restricciones dinámicas}{158}{section.3.32}%
+\contentsline {subsection}{\numberline {3.32.1}Fundamentos de la optimización dinámica}{158}{subsection.3.32.1}%
+\contentsline {subsection}{\numberline {3.32.2}Programación dinámica}{159}{subsection.3.32.2}%
+\contentsline {subsection}{\numberline {3.32.3}Control óptimo basado en restricciones}{159}{subsection.3.32.3}%
+\contentsline {subsection}{\numberline {3.32.4}Método de optimización restringida por ecuaciones diferenciales}{159}{subsection.3.32.4}%
+\contentsline {subsection}{\numberline {3.32.5}Ejemplo práctico: Control óptimo en Python}{160}{subsection.3.32.5}%
+\contentsline {subsection}{\numberline {3.32.6}Comparación de técnicas de optimización con restricciones dinámicas}{161}{subsection.3.32.6}%
+\contentsline {subsection}{\numberline {3.32.7}Aplicaciones de la optimización con restricciones dinámicas}{161}{subsection.3.32.7}%
+\contentsline {section}{\numberline {3.33}Optimización Diferencial}{161}{section.3.33}%
+\contentsline {subsection}{\numberline {3.33.1}Aprendizaje de funciones objetivo personalizadas}{161}{subsection.3.33.1}%
+\contentsline {subsection}{\numberline {3.33.2}Fundamentos de las funciones objetivo personalizadas}{161}{subsection.3.33.2}%
+\contentsline {subsection}{\numberline {3.33.3}Métodos para el aprendizaje de funciones objetivo}{162}{subsection.3.33.3}%
+\contentsline {subsection}{\numberline {3.33.4}Modelado basado en datos}{162}{subsection.3.33.4}%
+\contentsline {subsection}{\numberline {3.33.5}Optimización bayesiana}{162}{subsection.3.33.5}%
+\contentsline {subsection}{\numberline {3.33.6}Aprendizaje reforzado}{163}{subsection.3.33.6}%
+\contentsline {subsection}{\numberline {3.33.7}Inferencia de preferencias}{163}{subsection.3.33.7}%
+\contentsline {subsection}{\numberline {3.33.8}Ejemplo práctico: Optimización bayesiana en Python}{163}{subsection.3.33.8}%
+\contentsline {subsection}{\numberline {3.33.9}Aplicaciones del aprendizaje de funciones objetivo}{164}{subsection.3.33.9}%
+\contentsline {section}{\numberline {3.34}Algoritmos evolutivos y bioinspirados}{164}{section.3.34}%
+\contentsline {subsection}{\numberline {3.34.1}Fundamentos de los algoritmos evolutivos}{165}{subsection.3.34.1}%
+\contentsline {subsection}{\numberline {3.34.2}Algoritmos genéticos (GA)}{165}{subsection.3.34.2}%
+\contentsline {subsubsection}{Selección}{165}{section*.129}%
+\contentsline {subsubsection}{Cruce y mutación}{166}{section*.130}%
+\contentsline {subsection}{\numberline {3.34.3}Optimización por Enjambre de Partículas (PSO)}{166}{subsection.3.34.3}%
+\contentsline {subsection}{\numberline {3.34.4}Algoritmo de Colonia de Hormigas (ACO)}{167}{subsection.3.34.4}%
+\contentsline {subsection}{\numberline {3.34.5}Ejemplo práctico: Algoritmo Genético en Python}{167}{subsection.3.34.5}%
+\contentsline {subsection}{\numberline {3.34.6}Comparación de algoritmos evolutivos y bioinspirados}{168}{subsection.3.34.6}%
+\contentsline {section}{\numberline {3.35}Optimización basada en gradiente con restricciones dinámicas}{168}{section.3.35}%
+\contentsline {subsection}{\numberline {3.35.1}Fundamentos de la optimización con restricciones dinámicas}{169}{subsection.3.35.1}%
+\contentsline {subsection}{\numberline {3.35.2}Método de multiplicadores de Lagrange}{169}{subsection.3.35.2}%
+\contentsline {subsection}{\numberline {3.35.3}Gradiente proyectado}{170}{subsection.3.35.3}%
+\contentsline {subsection}{\numberline {3.35.4}Optimización basada en métodos de penalización}{170}{subsection.3.35.4}%
+\contentsline {subsection}{\numberline {3.35.5}Método de optimización restringida por ecuaciones diferenciales}{170}{subsection.3.35.5}%
+\contentsline {subsection}{\numberline {3.35.6}Ejemplo práctico: Optimización con restricciones dinámicas en Python}{171}{subsection.3.35.6}%
+\contentsline {subsection}{\numberline {3.35.7}Comparación de métodos de optimización con restricciones dinámicas}{171}{subsection.3.35.7}%
+\contentsline {subsection}{\numberline {3.35.8}Aplicaciones de la optimización basada en gradiente con restricciones dinámicas}{172}{subsection.3.35.8}%
+\contentsline {section}{\numberline {3.36}Inteligencia Artificial para Optimización}{172}{section.3.36}%
+\contentsline {subsection}{\numberline {3.36.1}Redes neuronales aplicadas a problemas de optimización}{172}{subsection.3.36.1}%
+\contentsline {subsection}{\numberline {3.36.2}Fundamentos de redes neuronales en optimización}{172}{subsection.3.36.2}%
+\contentsline {subsection}{\numberline {3.36.3}Algoritmos de optimización en redes neuronales}{173}{subsection.3.36.3}%
+\contentsline {subsubsection}{Descenso de gradiente estocástico (SGD)}{173}{section*.131}%
+\contentsline {subsubsection}{Adam (Adaptive Moment Estimation)}{173}{section*.132}%
+\contentsline {subsubsection}{Optimización basada en redes neuronales}{173}{section*.133}%
+\contentsline {subsection}{\numberline {3.36.4}Redes neuronales para optimización combinatoria}{174}{subsection.3.36.4}%
+\contentsline {subsection}{\numberline {3.36.5}Optimización de funciones objetivo con redes neuronales}{174}{subsection.3.36.5}%
+\contentsline {subsection}{\numberline {3.36.6}Ejemplo práctico: Uso de redes neuronales para optimización}{174}{subsection.3.36.6}%
+\contentsline {subsection}{\numberline {3.36.7}Comparación de métodos de optimización en redes neuronales}{175}{subsection.3.36.7}%
+\contentsline {subsection}{\numberline {3.36.8}Aplicaciones de redes neuronales en optimización}{175}{subsection.3.36.8}%
+\contentsline {section}{\numberline {3.37}Aprendizaje por refuerzo en entornos complejos}{176}{section.3.37}%
+\contentsline {subsection}{\numberline {3.37.1}Fundamentos del aprendizaje por refuerzo}{176}{subsection.3.37.1}%
+\contentsline {subsection}{\numberline {3.37.2}Métodos de aprendizaje por refuerzo}{176}{subsection.3.37.2}%
+\contentsline {subsubsection}{Programación dinámica}{177}{section*.134}%
+\contentsline {subsubsection}{Métodos basados en Monte Carlo}{177}{section*.135}%
+\contentsline {subsubsection}{Aprendizaje Q-learning}{177}{section*.136}%
+\contentsline {subsubsection}{Deep Q Networks (DQN)}{177}{section*.137}%
+\contentsline {subsubsection}{Métodos basados en políticas}{177}{section*.138}%
+\contentsline {subsection}{\numberline {3.37.3}Ejemplo práctico: Implementación de Q-learning en Python}{178}{subsection.3.37.3}%
+\contentsline {subsection}{\numberline {3.37.4}Comparación de métodos de aprendizaje por refuerzo}{179}{subsection.3.37.4}%
+\contentsline {subsection}{\numberline {3.37.5}Aplicaciones del aprendizaje por refuerzo en entornos complejos}{179}{subsection.3.37.5}%
+\contentsline {section}{\numberline {3.38}Meta-aprendizaje para modelos de optimización automatizada}{179}{section.3.38}%
+\contentsline {subsection}{\numberline {3.38.1}Fundamentos del meta-aprendizaje}{180}{subsection.3.38.1}%
+\contentsline {subsection}{\numberline {3.38.2}Métodos de meta-aprendizaje en optimización}{180}{subsection.3.38.2}%
+\contentsline {subsubsection}{Meta-aprendizaje basado en gradiente}{180}{section*.139}%
+\contentsline {subsubsection}{Optimización basada en redes neuronales recurrentes}{181}{section*.140}%
+\contentsline {subsubsection}{Optimización Bayesiana para meta-aprendizaje}{181}{section*.141}%
+\contentsline {subsection}{\numberline {3.38.3}Ejemplo práctico: Meta-aprendizaje con MAML en Python}{181}{subsection.3.38.3}%
+\contentsline {subsection}{\numberline {3.38.4}Comparación de enfoques de meta-aprendizaje en optimización}{182}{subsection.3.38.4}%
+\contentsline {subsection}{\numberline {3.38.5}Aplicaciones del meta-aprendizaje en optimización automatizada}{183}{subsection.3.38.5}%
+\contentsline {chapter}{\numberline {4}METODOS AVANZADOS BASADOS EN GRADIENTE}{188}{chapter.4}%
+\contentsline {section}{\numberline {4.1}METODOS AVANZADOS BASADOS EN GRADIENTE}{188}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}¿Qué son los métodos basados en gradiente?}{188}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Comparación con otros métodos de optimización}{189}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Gradiente Descendiente y sus Variantes}{190}{subsection.4.1.3}%
+\contentsline {subsubsection}{Gradiente Descendiente Estándar}{190}{section*.145}%
+\contentsline {subsubsection}{Gradiente Descendiente Estocástico (SGD)}{190}{section*.146}%
+\contentsline {subsubsection}{Gradiente Descendiente Mini-Batch}{191}{section*.147}%
+\contentsline {subsection}{\numberline {4.1.4}Aplicaciones Prácticas del metodo de Gradiente}{192}{subsection.4.1.4}%
+\contentsline {subsubsection}{Entrenamiento de Redes Neuronales Profundas}{192}{section*.148}%
+\contentsline {subsubsection}{Optimización de Funciones en Problemas de Optimización Convexa y No Convexa}{193}{section*.149}%
+\contentsline {subsubsection}{Aplicaciones en Regresión y Clasificación}{196}{section*.150}%
+\contentsline {subsubsection}{Implementación en Librerías como TensorFlow, PyTorch y Scikit-Learn}{198}{section*.151}%
+\contentsline {section}{\numberline {4.2}TECNICAS BASADAS EN MOMENTO (Aceleracion de Nesterov)}{201}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Introduccion}{201}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Fundamentos Matemáticos de la Aceleración de Nesterov}{202}{subsection.4.2.2}%
+\contentsline {subsubsection}{Principio de Aceleración de Nesterov}{202}{section*.152}%
+\contentsline {subsubsection}{Derivación Matemática de la Técnica de Nesterov}{202}{section*.153}%
+\contentsline {subsubsection}{Ejemplo de Aceleración de Nesterov}{202}{section*.154}%
+\contentsline {section}{\numberline {4.3}METODOS EN SEGUNDO ORDEN (Newton, enfoques cuasi-Newton)}{204}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}¿Qué es el algoritmo Quasi-Newton?}{204}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Formula matemáticamente}{204}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Características principales del algoritmo Quasi-Newton}{205}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Aplicaciones del algoritmo Quasi-Newton}{205}{subsection.4.3.4}%
+\contentsline {subsubsection}{Ventajas de utilizar el algoritmo Quasi-Newton}{205}{section*.155}%
+\contentsline {subsubsection}{Limitaciones del algoritmo Quasi-Newton}{206}{section*.156}%
+\contentsline {subsection}{\numberline {4.3.5}Ejemplo práctico de Método de Newton}{206}{subsection.4.3.5}%
+\contentsline {section}{\numberline {4.4}PROBLEMAS PRACTICOS RESTRICCIONES DE MEMORIA Y COMPLEJIDAD COMPUTACIONAL}{207}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Optimización de Algoritmos en Machine Learning}{207}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Algoritmos en Procesamiento de Big Data}{208}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Compresión de Datos en Dispositivos con Bajo Almacenamiento}{208}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Simulación de Sistemas Complejos con Limitaciones Computacionales}{209}{section.4.8}%
+\contentsline {section}{\numberline {4.9}EVALUACION DE DATOS DE ENCUESTAS PERUANAS}{209}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Ejemplo: Análisis de Factores Socioeconómicos que Influyen en el Nivel Educativo en Perú usando Métodos Basados en Gradiente}{209}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Código Python}{210}{subsection.4.9.2}%
+\contentsline {chapter}{\numberline {5}Tecnicas de programacion lineal}{212}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introducción}{212}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Antecedentes y Motivación}{212}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Objetivos del Documento}{212}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Estructura y Metodología}{213}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Fundamentos Teóricos de la Programación Lineal}{213}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Conceptos Básicos y Definiciones}{213}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Formulación Matemática de un Problema PL}{214}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Teoremas Fundamentales y Propiedades}{214}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Importancia de las Restricciones y la No Negatividad}{214}{subsection.5.2.4}%
+\contentsline {section}{\numberline {5.3}Métodos de Solución en Programación Lineal}{215}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Método Simplex: Teoría y Aplicaciones}{215}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Método de Punto Interior}{215}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Dualidad y Análisis de Sensibilidad}{215}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Ejemplos Numéricos y Ejercicios Prácticos}{215}{subsection.5.3.4}%
+\contentsline {section}{\numberline {5.4}Aplicaciones Prácticas en la Industria}{216}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Caso de Producción Industrial}{216}{subsection.5.4.1}%
+\contentsline {subsubsection}{Descripción del Problema y Datos Iniciales}{216}{section*.157}%
+\contentsline {subsubsection}{Formulación del Modelo Matemático}{216}{section*.158}%
+\contentsline {subsubsection}{Implementación en Python y Análisis de Resultados}{216}{section*.159}%
+\contentsline {subsubsection}{Representación Gráfica de la Región Factible}{217}{section*.160}%
+\contentsline {subsubsection}{Representación Gráfica de la Región Factible}{217}{section*.161}%
+\contentsline {subsection}{\numberline {5.4.2}Optimización en la Cadena de Suministro}{218}{subsection.5.4.2}%
+\contentsline {subsubsection}{Planteamiento del Problema}{218}{section*.163}%
+\contentsline {subsubsection}{Formulación del Modelo}{218}{section*.165}%
+\contentsline {subsubsection}{Solución y Discusión}{219}{section*.166}%
+\contentsline {section}{\numberline {5.5}Aplicaciones Prácticas en el Sector Público}{219}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Asignación Óptima de Presupuestos}{219}{subsection.5.5.1}%
+\contentsline {subsubsection}{Planteamiento del Problema}{219}{section*.167}%
+\contentsline {subsubsection}{Implementación en Python}{220}{section*.168}%
+\contentsline {subsubsection}{Representación Gráfica de la Distribución de Recursos}{220}{section*.169}%
+\contentsline {subsection}{\numberline {5.5.2}Políticas Públicas y Optimización de Inversiones en Infraestructura}{221}{subsection.5.5.2}%
+\contentsline {subsubsection}{Planteamiento y Restricciones del Modelo}{221}{section*.171}%
+\contentsline {subsubsection}{Implementación en Python}{221}{section*.172}%
+\contentsline {subsubsection}{Análisis y Visualización de Resultados}{222}{section*.173}%
+\contentsline {section}{\numberline {5.6}Análisis Avanzado: Dualidad y Sensibilidad}{222}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Teoría de la Dualidad}{222}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Precios Sombra y su Interpretación}{222}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3}Ejemplos de Análisis de Sensibilidad}{223}{subsection.5.6.3}%
+\contentsline {section}{\numberline {5.7}Nuevas Tendencias y Aplicaciones Emergentes}{223}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Programación Entera y Mixta}{223}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Integración con Big Data y Machine Learning}{223}{subsection.5.7.2}%
+\contentsline {subsection}{\numberline {5.7.3}Herramientas Avanzadas y Software Especializado}{223}{subsection.5.7.3}%
+\contentsline {subsection}{\numberline {5.7.4}Casos de Estudio y Proyectos de Investigación}{224}{subsection.5.7.4}%
+\contentsline {section}{\numberline {5.8}Base de Datos y Análisis Estadístico de Ejemplos}{224}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Descripción y Diccionario de Datos: Caso UNTELS 2024-1}{224}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}Ejemplos Prácticos de Validación y Análisis de Datos}{224}{subsection.5.8.2}%
+\contentsline {subsection}{\numberline {5.8.3}Visualización de Datos}{225}{subsection.5.8.3}%
+\contentsline {section}{\numberline {5.9}Conclusiones y Recomendaciones}{225}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Conclusiones Generales}{225}{subsection.5.9.1}%
+\contentsline {subsection}{\numberline {5.9.2}Limitaciones y Perspectivas Futuras}{225}{subsection.5.9.2}%
+\contentsline {subsection}{\numberline {5.9.3}Recomendaciones para la Industria y el Sector Público}{225}{subsection.5.9.3}%
+\contentsline {section}{\numberline {5.10}Referencias Bibliográficas}{226}{section.5.10}%
+\contentsline {chapter}{\numberline {6}Programación No Lineal y Optimización en Modelos Socioeconómicos}{229}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Fundamentos de la optimización no lineal}{230}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Conceptos básicos de optimización}{230}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Definición de problemas de optimización no lineal}{230}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Clasificación de problemas}{231}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Formulación matemática de problemas no lineales}{231}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Funciones objetivo y restricciones}{231}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Condiciones de optimalidad: Karush-Kuhn-Tucker}{232}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Interpretación geométrica de la optimización no lineal}{232}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Herramientas matemáticas necesarias}{233}{subsection.6.3.1}%
+\contentsline {subsubsection}{Repaso de cálculo multivariable}{233}{section*.179}%
+\contentsline {subsubsection}{Convexidad y su importancia en la optimización}{233}{section*.180}%
+\contentsline {section}{\numberline {6.4}Enfoques basados en gradiente vs. sin derivadas}{233}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Métodos basados en gradiente}{234}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Descenso de gradiente}{234}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Método de Newton y quasi-Newton (BFGS, L-BFGS)}{235}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}Ventajas y limitaciones de los métodos basados en gradiente}{235}{subsection.6.5.3}%
+\contentsline {subsubsection}{Ventajas:}{235}{section*.181}%
+\contentsline {subsubsection}{Limitaciones:}{236}{section*.182}%
+\contentsline {section}{\numberline {6.6}Métodos sin derivadas}{236}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Algoritmos genéticos}{236}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Optimización por enjambre de partículas (PSO)}{237}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}Búsqueda directa (Nelder-Mead)}{237}{subsection.6.6.3}%
+\contentsline {subsection}{\numberline {6.6.4}Comparación con métodos basados en gradiente}{237}{subsection.6.6.4}%
+\contentsline {subsection}{\numberline {6.6.5}Selección del método adecuado}{237}{subsection.6.6.5}%
+\contentsline {section}{\numberline {6.7}Implementaciones prácticas de solvers}{238}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Introducción a los solvers de optimización}{238}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}¿Qué es un solver y cómo funciona?}{238}{subsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.8.2}Comparación entre solvers comerciales y de código abierto}{239}{subsection.6.8.2}%
+\contentsline {section}{\numberline {6.9}Uso de IPOPT}{239}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}Instalación y configuración}{239}{subsection.6.9.1}%
+\contentsline {subsubsection}{Instalación de IPOPT en Windows}{239}{section*.183}%
+\contentsline {paragraph}{Instalar Cygwin o MSYS2}{239}{section*.184}%
+\contentsline {subparagraph}{Cygwin:}{240}{section*.185}%
+\contentsline {subparagraph}{MSYS2:}{240}{section*.186}%
+\contentsline {subsubsection}{Instalar dependencias necesarias}{240}{section*.187}%
+\contentsline {subsubsection}{Descargar IPOPT}{240}{section*.188}%
+\contentsline {subsubsection}{Compilación e instalación de IPOPT}{241}{section*.189}%
+\contentsline {subsubsection}{Verificar la instalación}{241}{section*.190}%
+\contentsline {subsubsection}{Usar IPOPT en Python}{241}{section*.191}%
+\contentsline {subsubsection}{Configuración en entornos de desarrollo (opcional)}{242}{section*.192}%
+\contentsline {subsubsection}{Alternativa: Usar solvers en la nube}{242}{section*.193}%
+\contentsline {subsubsection}{Ejemplo práctico de implementación}{242}{section*.194}%
+\contentsline {section}{\numberline {6.10}Uso de KNITRO}{243}{section.6.10}%
+\contentsline {subsection}{\numberline {6.10.1}Características principales}{243}{subsection.6.10.1}%
+\contentsline {subsection}{\numberline {6.10.2}Casos de aplicación en modelos socioeconómicos}{244}{subsection.6.10.2}%
+\contentsline {subsection}{\numberline {6.10.3}Comparativa de solvers}{244}{subsection.6.10.3}%
+\contentsline {section}{\numberline {6.11}Estudio de caso socioeconómico: modelado de ingresos o pobreza}{245}{section.6.11}%
+\contentsline {section}{\numberline {6.12}Planteamiento del problema}{245}{section.6.12}%
+\contentsline {subsection}{\numberline {6.12.1}Descripción del contexto socioeconómico}{245}{subsection.6.12.1}%
+\contentsline {subsection}{\numberline {6.12.2}Formulación del modelo matemático}{245}{subsection.6.12.2}%
+\contentsline {section}{\numberline {6.13}Implementación del modelo}{246}{section.6.13}%
+\contentsline {subsection}{\numberline {6.13.1}Elección del solver y método de optimización}{246}{subsection.6.13.1}%
+\contentsline {subsection}{\numberline {6.13.2}Desarrollo del código y análisis de resultados}{246}{subsection.6.13.2}%
+\contentsline {subsection}{\numberline {6.13.3}Interpretación de los resultados}{248}{subsection.6.13.3}%
+\contentsline {subsection}{\numberline {6.13.4}Interpretación de resultados}{248}{subsection.6.13.4}%
+\contentsline {subsection}{\numberline {6.13.5}Limitaciones del modelo}{248}{subsection.6.13.5}%
+\contentsline {subsection}{\numberline {6.13.6}Posibles extensiones o mejoras}{249}{subsection.6.13.6}%
+\contentsline {section}{\numberline {6.14}Aplicaciones avanzadas y tendencias futuras}{249}{section.6.14}%
+\contentsline {section}{\numberline {6.15}Optimización en políticas públicas}{249}{section.6.15}%
+\contentsline {subsection}{\numberline {6.15.1}Modelos de asignación de recursos}{250}{subsection.6.15.1}%
+\contentsline {subsection}{\numberline {6.15.2}Planificación urbana y desarrollo sostenible}{250}{subsection.6.15.2}%
+\contentsline {section}{\numberline {6.16}Integración con machine learning}{250}{section.6.16}%
+\contentsline {subsection}{\numberline {6.16.1}Optimización de hiperparámetros}{251}{subsection.6.16.1}%
+\contentsline {subsection}{\numberline {6.16.2}Modelos híbridos para predicción socioeconómica}{251}{subsection.6.16.2}%
+\contentsline {section}{\numberline {6.17}Tendencias futuras en optimización no lineal}{251}{section.6.17}%
+\contentsline {subsection}{\numberline {6.17.1}Avances en algoritmos}{251}{subsection.6.17.1}%
+\contentsline {subsection}{\numberline {6.17.2}Aplicaciones emergentes en economía y ciencias sociales}{252}{subsection.6.17.2}%
+\contentsline {subsection}{\numberline {6.17.3}Integración con inteligencia artificial}{252}{subsection.6.17.3}%
+\contentsline {section}{\numberline {6.18}Conclusiones}{253}{section.6.18}%
+\contentsline {chapter}{\numberline {7}Optimización Bayesiana para la Selección de Hiperparámetros en Aprendizaje Automático}{256}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Introducción y Contexto Histórico}{256}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Antecedentes y Métodos Tradicionales}{257}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Evolución Hacia la Optimización Bayesiana}{257}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Impacto en la Investigación y la Industria}{257}{subsection.7.1.3}%
+\contentsline {section}{\numberline {7.2}Importancia del Ajuste de Hiperparámetros y sus Implicaciones}{257}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}El Compromiso entre Sesgo y Varianza}{257}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Impacto en las Métricas de Evaluación}{258}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Eficiencia y Reducción del Costo Computacional}{258}{subsection.7.2.3}%
+\contentsline {section}{\numberline {7.3}Contribución de Este Trabajo: Innovación y Aplicación en el Contexto Peruano}{258}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Aporte Teórico y Práctico}{258}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Aplicación a Problemas Locales}{259}{subsection.7.3.2}%
+\contentsline {section}{\numberline {7.4}Fundamentos de los Procesos Gaussianos para la Optimización}{259}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Definición Formal y Conceptos Clave}{259}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Selección y Características de los Kernels}{259}{subsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.3}Ventajas en la Modelación de la Incertidumbre}{260}{subsection.7.4.3}%
+\contentsline {section}{\numberline {7.5}Funciones de Adquisición y Modelado de Sustitución: Estrategias para una Búsqueda Eficiente}{260}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Expected Improvement (EI)}{260}{subsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.5.2}Probability of Improvement (PI) y Upper Confidence Bound (UCB)}{261}{subsection.7.5.2}%
+\contentsline {subsection}{\numberline {7.5.3}Modelado de Sustitución}{261}{subsection.7.5.3}%
+\contentsline {section}{\numberline {7.6}Implementación de la Optimización Bayesiana con Herramientas Modernas}{261}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}Spearmint: Optimización Basada en Procesos Gaussianos}{261}{subsection.7.6.1}%
+\contentsline {subsection}{\numberline {7.6.2}scikit-optimize: Integración con scikit-learn}{262}{subsection.7.6.2}%
+\contentsline {subsection}{\numberline {7.6.3}Hyperopt: Optimización con TPE para Espacios Complejos}{263}{subsection.7.6.3}%
+\contentsline {subsection}{\numberline {7.6.4}Comparación de Herramientas}{264}{subsection.7.6.4}%
+\contentsline {section}{\numberline {7.7}Ejemplos Prácticos Adicionales}{264}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}Ejemplo Práctico 1: Optimización de la Función Branin con scikit-optimize}{264}{subsection.7.7.1}%
+\contentsline {subsection}{\numberline {7.7.2}Ejemplo Práctico 2: Optimización de Hiperparámetros para una Red Neuronal con Optuna}{265}{subsection.7.7.2}%
+\contentsline {subsection}{\numberline {7.7.3}Ejemplo Práctico 3: Optimización de Parámetros para LightGBM con Hyperopt}{266}{subsection.7.7.3}%
+\contentsline {section}{\numberline {7.8}Rendimiento en Tareas de Clasificación con Datos Peruanos: Estudios de Caso y Análisis Estadístico}{268}{section.7.8}%
+\contentsline {subsection}{\numberline {7.8.1}Importancia y Desafíos de los Datos Locales}{268}{subsection.7.8.1}%
+\contentsline {subsection}{\numberline {7.8.2}Caso de Estudio – Clasificación de Abandono Escolar}{268}{subsection.7.8.2}%
+\contentsline {subsection}{\numberline {7.8.3}Comparación de Modelos}{268}{subsection.7.8.3}%
+\contentsline {subsection}{\numberline {7.8.4}Implementación en Python para la Clasificación}{269}{subsection.7.8.4}%
+\contentsline {subsection}{\numberline {7.8.5}Visualización Estadística}{269}{subsection.7.8.5}%
+\contentsline {subsubsection}{Histograma de Distribución de Edades}{270}{section*.201}%
+\contentsline {subsubsection}{Gráfico de Convergencia del Proceso de Optimización}{270}{section*.202}%
+\contentsline {section}{\numberline {7.9}Conclusión y Perspectivas Futuras}{270}{section.7.9}%
+\contentsline {subsection}{\numberline {7.9.1}Síntesis de Resultados}{271}{subsection.7.9.1}%
+\contentsline {subsection}{\numberline {7.9.2}Relevancia y Aplicaciones Prácticas}{271}{subsection.7.9.2}%
+\contentsline {subsection}{\numberline {7.9.3}Líneas de Investigación Futuras}{271}{subsection.7.9.3}%
+\contentsline {subsection}{\numberline {7.9.4}Detalles Matemáticos Adicionales}{271}{subsection.7.9.4}%
+\contentsline {subsection}{\numberline {7.9.5}Glosario de Términos}{272}{subsection.7.9.5}%
+\contentsline {subsection}{\numberline {7.9.6}Bibliografía Ampliada}{272}{subsection.7.9.6}%
+\contentsline {chapter}{\numberline {8}Optimización para clasificación y regresión \\ con datos de ENAHO}{274}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Preprocesamiento de datos e ingeniería de características para ENAHO}{274}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Carga y exploración de datos}{275}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Manejo de valores nulos}{275}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}Codificación de variables categóricas}{276}{subsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.1.4}Escalamiento de variables numéricas}{276}{subsection.8.1.4}%
+\contentsline {subsection}{\numberline {8.1.5}Creación de nuevas características (Feature Engineering)}{277}{subsection.8.1.5}%
+\contentsline {subsection}{\numberline {8.1.6}Manejo de valores atípicos (outliers)}{277}{subsection.8.1.6}%
+\contentsline {subsection}{\numberline {8.1.7}División en conjunto de entrenamiento y prueba}{278}{subsection.8.1.7}%
+\contentsline {section}{\numberline {8.2}Construcción de modelos predictivos}{278}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Regresión logística para clasificación}{278}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Bosques aleatorios para clasificación y regresión}{279}{subsection.8.2.2}%
+\contentsline {subsubsection}{Algoritmo de bosques aleatorios}{279}{section*.206}%
+\contentsline {subsubsection}{Implementación en Python}{280}{section*.207}%
+\contentsline {subsection}{\numberline {8.2.3}Otros modelos de aprendizaje automático}{280}{subsection.8.2.3}%
+\contentsline {section}{\numberline {8.3}Optimización de parámetros}{281}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Búsqueda en cuadrícula (Grid Search)}{281}{subsection.8.3.1}%
+\contentsline {subsubsection}{Ejemplo con GridSearchCV}{281}{section*.208}%
+\contentsline {subsection}{\numberline {8.3.2}Búsqueda aleatoria (Random Search)}{282}{subsection.8.3.2}%
+\contentsline {subsubsection}{Ejemplo con RandomizedSearchCV}{282}{section*.209}%
+\contentsline {subsection}{\numberline {8.3.3}Optimización bayesiana}{283}{subsection.8.3.3}%
+\contentsline {subsubsection}{Ejemplo con Optuna}{283}{section*.210}%
+\contentsline {subsection}{\numberline {8.3.4}Comparación de métodos}{283}{subsection.8.3.4}%
+\contentsline {section}{\numberline {8.4}Métricas de evaluación de modelos}{284}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Métricas para clasificación}{284}{subsection.8.4.1}%
+\contentsline {subsubsection}{Precisión (\textit {Accuracy})}{284}{section*.211}%
+\contentsline {subsubsection}{Precisión y Recall}{285}{section*.212}%
+\contentsline {subsubsection}{Puntuación F1 (\textit {F1-score})}{285}{section*.213}%
+\contentsline {subsubsection}{Matriz de confusión}{285}{section*.214}%
+\contentsline {subsection}{\numberline {8.4.2}Métricas para regresión}{286}{subsection.8.4.2}%
+\contentsline {subsubsection}{Error Cuadrático Medio (MSE)}{286}{section*.215}%
+\contentsline {subsubsection}{Raíz del Error Cuadrático Medio (RMSE)}{286}{section*.216}%
+\contentsline {subsubsection}{Error Absoluto Medio (MAE)}{287}{section*.217}%
+\contentsline {subsubsection}{Coeficiente de Determinación \( R^2 \)}{287}{section*.218}%
+\contentsline {subsection}{\numberline {8.4.3}Comparación de métricas}{287}{subsection.8.4.3}%
+\contentsline {section}{\numberline {8.5}Caso Pr\'actico: Preprocesamiento de Datos de ENAHO}{288}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}Carga y Exploraci\'on de Datos}{288}{subsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.5.2}Manejo de Valores Faltantes}{288}{subsection.8.5.2}%
+\contentsline {subsection}{\numberline {8.5.3}Codificaci\'on de Variables Categ\'oricas}{289}{subsection.8.5.3}%
+\contentsline {subsection}{\numberline {8.5.4}Escalado de Variables Num\'ericas}{289}{subsection.8.5.4}%
+\contentsline {subsection}{\numberline {8.5.5}Modelos Predictivos}{290}{subsection.8.5.5}%
+\contentsline {section}{\numberline {8.6}Conclusión}{290}{section.8.6}%
+\contentsline {chapter}{\numberline {9}Técnicas de Optimización Geoespacial usando Datos del Censo}{293}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Optimización de Clustering para Segmentación Socioeconómica}{313}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Objetivos y criterios de clustering}{313}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Métodos de clustering}{313}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}K-Means}{313}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Clustering espectral}{314}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Clustering jerárquico}{315}{subsection.10.2.3}%
+\contentsline {section}{\numberline {10.3}Optimización de asignaciones de clustering}{316}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Mini-Batch K-Means}{316}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Paralelización}{317}{subsection.10.3.2}%
+\contentsline {section}{\numberline {10.4}Análisis socioeconómico en Huancavelica}{318}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Dataset utilizado}{318}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Aplicación de K-Means en Huancavelica}{320}{section.10.6}%
+\contentsline {subsection}{\numberline {10.6.1}Problema y Objetivo}{320}{subsection.10.6.1}%
+\contentsline {subsection}{\numberline {10.6.2}Datos Utilizados}{321}{subsection.10.6.2}%
+\contentsline {subsection}{\numberline {10.6.3}Proceso de Segmentación utilizando K-Means}{321}{subsection.10.6.3}%
+\contentsline {subsection}{\numberline {10.6.4}Resultados}{321}{subsection.10.6.4}%
+\contentsline {section}{\numberline {10.7}Ejemplo en Python}{322}{section.10.7}%
+\contentsline {section}{\numberline {10.8}Conclusiones}{323}{section.10.8}%
+\contentsline {chapter}{\numberline {11}Optimización Multiobjetivo para la Toma de Decisiones en Políticas Públicas}{326}{chapter.11}%
+\contentsline {subsection}{\numberline {11.0.1}Optimalidad de Pareto y Compensaciones Multiobjetivo}{326}{subsection.11.0.1}%
+\contentsline {subsection}{\numberline {11.0.2}Compensaciones Multiobjetivo}{331}{subsection.11.0.2}%
+\contentsline {subsection}{\numberline {11.0.3}Métodos de Suma Ponderada y $\varepsilon $-Restricción}{335}{subsection.11.0.3}%
+\contentsline {subsubsection}{Modelo de Suma Ponderada (WSM)}{335}{section*.291}%
+\contentsline {paragraph}{Definición:}{336}{section*.292}%
+\contentsline {paragraph}{Aplicación en la toma de decisiones:}{336}{section*.293}%
+\contentsline {paragraph}{Ejemplo de Aplicación:}{336}{section*.294}%
+\contentsline {paragraph}{Ventajas del Modelo de Suma Ponderada:}{337}{section*.295}%
+\contentsline {paragraph}{Desventajas:}{337}{section*.296}%
+\contentsline {subsubsection}{Método de $\varepsilon $-Restricción}{340}{section*.301}%
+\contentsline {paragraph}{Definición:}{340}{section*.302}%
+\contentsline {paragraph}{Características del Método de $\varepsilon $-Restricción:}{340}{section*.303}%
+\contentsline {paragraph}{Aplicaciones del Método:}{341}{section*.304}%
+\contentsline {subsection}{\numberline {11.0.4}Algoritmos Evolutivos para Problemas Multiobjetivo}{344}{subsection.11.0.4}%
+\contentsline {paragraph}{Funcionamiento General:}{345}{section*.315}%
+\contentsline {subsubsection}{Beneficios de los Algoritmos Evolutivos para Problemas Multiobjetivo}{345}{section*.316}%
+\contentsline {subsubsection}{Desventajas de los Algoritmos Evolutivos para Problemas Multiobjetivo}{345}{section*.317}%
+\contentsline {subsection}{\numberline {11.0.5}Equilibrio de Compensaciones Políticas en Programas Sociales Peruanos}{349}{subsection.11.0.5}%
+\contentsline {paragraph}{Objetivo:}{349}{section*.323}%
+\contentsline {subsubsection}{Datos Disponibles}{349}{section*.324}%
+\contentsline {subsubsection}{Análisis}{350}{section*.325}%
+\contentsline {chapter}{\numberline {12}ESCALADO DE ALGORITMOS DE OPTIMIZACIÓN}{357}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Definición}{357}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Ejemplo: Minimización de una función cuadrática}{358}{section.12.2}%
+\contentsline {subsection}{\numberline {12.2.1}Paso 1: Definir la función y su derivada}{358}{subsection.12.2.1}%
+\contentsline {subsection}{\numberline {12.2.2}Paso 2: Elegir los valores iniciales}{358}{subsection.12.2.2}%
+\contentsline {subsection}{\numberline {12.2.3}Iteraciones}{358}{subsection.12.2.3}%
+\contentsline {subsubsection}{Iteración 1:}{358}{section*.333}%
+\contentsline {subsubsection}{Iteración 2:}{358}{section*.334}%
+\contentsline {subsubsection}{Iteración 3:}{359}{section*.335}%
+\contentsline {subsubsection}{Iteración 4:}{359}{section*.336}%
+\contentsline {subsubsection}{Iteración 5:}{359}{section*.337}%
+\contentsline {subsection}{\numberline {12.2.4}Verificar el resultado}{359}{subsection.12.2.4}%
+\contentsline {section}{\numberline {12.3}Computación distribuida (Spark, Dask, clusters HPC)}{360}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}Apache Spark}{360}{subsection.12.3.1}%
+\contentsline {subsection}{\numberline {12.3.2}Herramientas de Apache Spark}{361}{subsection.12.3.2}%
+\contentsline {subsubsection}{Spark SQL}{361}{section*.338}%
+\contentsline {subsubsection}{RDD (Resilient Distributed Dataset)}{361}{section*.339}%
+\contentsline {subsubsection}{Spark DataFrame}{361}{section*.340}%
+\contentsline {subsubsection}{Spark Streaming}{361}{section*.341}%
+\contentsline {subsubsection}{MLlib}{361}{section*.342}%
+\contentsline {subsubsection}{GraphX}{361}{section*.343}%
+\contentsline {subsection}{\numberline {12.3.3}Dask}{362}{subsection.12.3.3}%
+\contentsline {subsubsection}{Paralelismo y Ejecución Perezosa}{362}{section*.344}%
+\contentsline {subsubsection}{Computación Distribuida}{362}{section*.345}%
+\contentsline {subsubsection}{Integración con Ecosistemas Existentes}{362}{section*.346}%
+\contentsline {subsubsection}{Desafíos y Consideraciones}{362}{section*.347}%
+\contentsline {subsection}{\numberline {12.3.4}Clusters HPC}{362}{subsection.12.3.4}%
+\contentsline {section}{\numberline {12.4}Paralelización de Métodos Basados en Gradiente y Evolutivos}{363}{section.12.4}%
+\contentsline {subsection}{\numberline {12.4.1}Métodos Basados en Gradientes}{363}{subsection.12.4.1}%
+\contentsline {subsubsection}{Paralelización de Datos}{364}{section*.348}%
+\contentsline {subsubsection}{Paralelización de Modelos}{364}{section*.349}%
+\contentsline {subsubsection}{Paralelización de Pipeline}{364}{section*.350}%
+\contentsline {subsection}{\numberline {12.4.2}Métodos Evolutivos}{364}{subsection.12.4.2}%
+\contentsline {subsubsection}{Ejemplo: Algoritmos Genéticos}{364}{section*.351}%
+\contentsline {subsubsection}{Desafíos y Consideraciones}{365}{section*.352}%
+\contentsline {section}{\numberline {12.5}Gestión de Memoria y Participación de Datos}{365}{section.12.5}%
+\contentsline {subsection}{\numberline {12.5.1}Gestión de Memoria}{365}{subsection.12.5.1}%
+\contentsline {subsubsection}{Ejemplos de Gestión de Memoria}{366}{section*.353}%
+\contentsline {subsection}{\numberline {12.5.2}Participamiento de Datos}{366}{subsection.12.5.2}%
+\contentsline {subsubsection}{Ejemplos de Participamiento de Datos}{366}{section*.354}%
+\contentsline {section}{\numberline {12.6}Benchmarks de Rendimiento con Datos Reales del INEI}{367}{section.12.6}%
+\contentsline {section}{\numberline {12.7}EJEMPLO: Población Censada por Afiliación a Algún Tipo de Seguro de Salud}{367}{section.12.7}%
+\contentsline {section}{\numberline {12.8}Resultados}{371}{section.12.8}%
+\contentsline {chapter}{\numberline {13}Introducción al Aprendizaje Distribuido y Federado}{375}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Conceptos Básicos}{375}{section.13.1}%
+\contentsline {subsection}{\numberline {13.1.1}Aprendizaje Distribuido}{375}{subsection.13.1.1}%
+\contentsline {subsection}{\numberline {13.1.2}Paralelismo de datos}{375}{subsection.13.1.2}%
+\contentsline {subsection}{\numberline {13.1.3}Paralelismo de modelo}{376}{subsection.13.1.3}%
+\contentsline {subsection}{\numberline {13.1.4}Ensembles distribuidos}{376}{subsection.13.1.4}%
+\contentsline {subsection}{\numberline {13.1.5}Aprendizaje Federado}{376}{subsection.13.1.5}%
+\contentsline {subsection}{\numberline {13.1.6}Aprendizaje federado centralizado}{377}{subsection.13.1.6}%
+\contentsline {subsection}{\numberline {13.1.7}Aprendizaje federado descentralizado}{377}{subsection.13.1.7}%
+\contentsline {subsection}{\numberline {13.1.8}Aprendizaje federado basado en clusters}{377}{subsection.13.1.8}%
+\contentsline {subsection}{\numberline {13.1.9}Diferencias Principales}{377}{subsection.13.1.9}%
+\contentsline {subsection}{\numberline {13.1.10}Manejo de datos}{377}{subsection.13.1.10}%
+\contentsline {subsection}{\numberline {13.1.11}Comunicación de datos}{378}{subsection.13.1.11}%
+\contentsline {subsection}{\numberline {13.1.12}Uso de recursos}{378}{subsection.13.1.12}%
+\contentsline {subsection}{\numberline {13.1.13}Eficiencia y aplicaciones}{378}{subsection.13.1.13}%
+\contentsline {section}{\numberline {13.2}Fundamentos Teóricos del Aprendizaje Federado y Distribuido}{379}{section.13.2}%
+\contentsline {subsection}{\numberline {13.2.1}Aprendizaje Federado}{379}{subsection.13.2.1}%
+\contentsline {subsection}{\numberline {13.2.2}Aprendizaje Distribuido}{379}{subsection.13.2.2}%
+\contentsline {subsection}{\numberline {13.2.3}Aplicaciones Prácticas}{379}{subsection.13.2.3}%
+\contentsline {subsection}{\numberline {13.2.4}Aplicaciones en Salud}{379}{subsection.13.2.4}%
+\contentsline {subsection}{\numberline {13.2.5}Aplicaciones en Finanzas}{380}{subsection.13.2.5}%
+\contentsline {subsection}{\numberline {13.2.6}Aplicaciones en IoT}{380}{subsection.13.2.6}%
+\contentsline {subsection}{\numberline {13.2.7}Desafíos y Consideraciones}{380}{subsection.13.2.7}%
+\contentsline {subsection}{\numberline {13.2.8}Privacidad y Seguridad}{380}{subsection.13.2.8}%
+\contentsline {subsection}{\numberline {13.2.9}Comunicación Eficiente}{380}{subsection.13.2.9}%
+\contentsline {section}{\numberline {13.3}Frameworks Populares para el Aprendizaje Distribuido}{381}{section.13.3}%
+\contentsline {subsection}{\numberline {13.3.1}TensorFlow}{381}{subsection.13.3.1}%
+\contentsline {subsection}{\numberline {13.3.2}PyTorch}{381}{subsection.13.3.2}%
+\contentsline {subsection}{\numberline {13.3.3}Horovod}{381}{subsection.13.3.3}%
+\contentsline {subsection}{\numberline {13.3.4}Apache Spark MLlib}{382}{subsection.13.3.4}%
+\contentsline {subsection}{\numberline {13.3.5}Comparación de Frameworks}{382}{subsection.13.3.5}%
+\contentsline {subsection}{\numberline {13.3.6}Ventajas y Desventajas}{382}{subsection.13.3.6}%
+\contentsline {section}{\numberline {13.4}Frameworks para Aprendizaje Federado}{383}{section.13.4}%
+\contentsline {subsection}{\numberline {13.4.1}TensorFlow Federated (TFF)}{383}{subsection.13.4.1}%
+\contentsline {subsection}{\numberline {13.4.2}PySyft}{383}{subsection.13.4.2}%
+\contentsline {subsection}{\numberline {13.4.3}Flower}{384}{subsection.13.4.3}%
+\contentsline {subsection}{\numberline {13.4.4}FATE}{384}{subsection.13.4.4}%
+\contentsline {subsection}{\numberline {13.4.5}Comparación de Frameworks}{384}{subsection.13.4.5}%
+\contentsline {subsection}{\numberline {13.4.6}Ventajas y Desventajas}{384}{subsection.13.4.6}%
+\contentsline {section}{\numberline {13.5}Técnicas de Optimización en Aprendizaje Distribuido}{385}{section.13.5}%
+\contentsline {subsection}{\numberline {13.5.1}Descenso de Gradiente Estocástico (SGD) Distribuido}{385}{subsection.13.5.1}%
+\contentsline {subsection}{\numberline {13.5.2}Modelos de Consenso}{385}{subsection.13.5.2}%
+\contentsline {subsection}{\numberline {13.5.3}Optimización Federada}{385}{subsection.13.5.3}%
+\contentsline {subsection}{\numberline {13.5.4}Implementación en Código}{385}{subsection.13.5.4}%
+\contentsline {section}{\numberline {13.6}Desafíos en la Optimización de Sistemas Distribuidos y Federados}{386}{section.13.6}%
+\contentsline {subsection}{\numberline {13.6.1}Heterogeneidad de los Datos}{386}{subsection.13.6.1}%
+\contentsline {subsection}{\numberline {13.6.2}Latencia en la Comunicación}{386}{subsection.13.6.2}%
+\contentsline {subsection}{\numberline {13.6.3}Convergencia del Modelo}{387}{subsection.13.6.3}%
+\contentsline {subsection}{\numberline {13.6.4}Desafíos en Sistemas Federados}{387}{subsection.13.6.4}%
+\contentsline {subsection}{\numberline {13.6.5}Privacidad y Seguridad}{387}{subsection.13.6.5}%
+\contentsline {subsection}{\numberline {13.6.6}Heterogeneidad de los Dispositivos}{387}{subsection.13.6.6}%
+\contentsline {subsection}{\numberline {13.6.7}Desbalanceo de Datos}{388}{subsection.13.6.7}%
+\contentsline {subsection}{\numberline {13.6.8}Posibles Soluciones}{388}{subsection.13.6.8}%
+\contentsline {subsection}{\numberline {13.6.9}Técnicas de Compresión}{388}{subsection.13.6.9}%
+\contentsline {subsection}{\numberline {13.6.10}Algoritmos de Consenso}{389}{subsection.13.6.10}%
+\contentsline {subsection}{\numberline {13.6.11}Protección de la Privacidad}{389}{subsection.13.6.11}%
+\contentsline {section}{\numberline {13.7}Evaluación del Rendimiento y Métricas de Eficiencia}{389}{section.13.7}%
+\contentsline {subsection}{\numberline {13.7.1}Tiempo de Entrenamiento}{389}{subsection.13.7.1}%
+\contentsline {subsection}{\numberline {13.7.2}Precisión del Modelo}{389}{subsection.13.7.2}%
+\contentsline {subsection}{\numberline {13.7.3}Escalabilidad}{389}{subsection.13.7.3}%
+\contentsline {subsection}{\numberline {13.7.4}Métricas de Eficiencia}{389}{subsection.13.7.4}%
+\contentsline {subsection}{\numberline {13.7.5}Eficiencia en la Comunicación}{389}{subsection.13.7.5}%
+\contentsline {subsection}{\numberline {13.7.6}Uso de Recursos}{390}{subsection.13.7.6}%
+\contentsline {subsection}{\numberline {13.7.7}Consumo de Energía}{390}{subsection.13.7.7}%
+\contentsline {subsection}{\numberline {13.7.8}Técnicas de Evaluación}{390}{subsection.13.7.8}%
+\contentsline {subsection}{\numberline {13.7.9}Simulaciones}{390}{subsection.13.7.9}%
+\contentsline {subsection}{\numberline {13.7.10}Experimentos en Entornos Reales}{390}{subsection.13.7.10}%
+\contentsline {subsection}{\numberline {13.7.11}Benchmarks}{390}{subsection.13.7.11}%
+\contentsline {section}{\numberline {13.8}Registro Nacional de Plantaciones Forestales por Especies}{391}{section.13.8}%
+\contentsline {subsection}{\numberline {13.8.1}Importancia del Registro}{391}{subsection.13.8.1}%
+\contentsline {subsection}{\numberline {13.8.2}Casos de Aplicación}{391}{subsection.13.8.2}%
+\contentsline {subsection}{\numberline {13.8.3}Monitoreo y Control}{391}{subsection.13.8.3}%
+\contentsline {subsection}{\numberline {13.8.4}Planificación y Ordenamiento}{391}{subsection.13.8.4}%
+\contentsline {subsection}{\numberline {13.8.5}Aplicaciones en la Industria Forestal}{391}{subsection.13.8.5}%
+\contentsline {subsection}{\numberline {13.8.6}Optimización de la Producción Maderera}{391}{subsection.13.8.6}%
+\contentsline {subsection}{\numberline {13.8.7}Certificación y Comercio Internacional}{392}{subsection.13.8.7}%
+\contentsline {subsection}{\numberline {13.8.8}Beneficios para la Conservación}{392}{subsection.13.8.8}%
+\contentsline {subsection}{\numberline {13.8.9}Protección de Especies Nativas}{392}{subsection.13.8.9}%
+\contentsline {subsection}{\numberline {13.8.10}Mitigación del Cambio Climático}{392}{subsection.13.8.10}%
+\contentsline {subsection}{\numberline {13.8.11}Importancia del Registro}{392}{subsection.13.8.11}%
+\contentsline {subsection}{\numberline {13.8.12}Monitoreo y Control}{392}{subsection.13.8.12}%
+\contentsline {subsection}{\numberline {13.8.13}Planificación y Ordenamiento}{393}{subsection.13.8.13}%
+\contentsline {subsection}{\numberline {13.8.14}Aplicaciones en la Industria Forestal}{393}{subsection.13.8.14}%
+\contentsline {subsection}{\numberline {13.8.15}Optimización de la Producción Maderera}{393}{subsection.13.8.15}%
+\contentsline {subsection}{\numberline {13.8.16}Certificación y Comercio Internacional}{393}{subsection.13.8.16}%
+\contentsline {subsection}{\numberline {13.8.17}Beneficios para la Conservación}{393}{subsection.13.8.17}%
+\contentsline {subsection}{\numberline {13.8.18}Protección de Especies Nativas}{393}{subsection.13.8.18}%
+\contentsline {subsection}{\numberline {13.8.19}Mitigación del Cambio Climático}{393}{subsection.13.8.19}%
+\contentsline {subsection}{\numberline {13.8.20}Análisis de los Datos de Plantaciones}{393}{subsection.13.8.20}%
+\contentsline {subsection}{\numberline {13.8.21}Código Python}{394}{subsection.13.8.21}%
+\contentsline {subsection}{\numberline {13.8.22}Gráfico de Superficie de Plantación por Especie}{394}{subsection.13.8.22}%
+\contentsline {subsection}{\numberline {13.8.23}Primeros Registros de Plantaciones}{395}{subsection.13.8.23}%
+\contentsline {section}{\numberline {13.9}Futuro del Aprendizaje Distribuido y Federado}{396}{section.13.9}%
+\contentsline {subsection}{\numberline {13.9.1}Tendencias Emergentes}{396}{subsection.13.9.1}%
+\contentsline {subsection}{\numberline {13.9.2}Aprendizaje Federado con Privacidad Mejorada}{396}{subsection.13.9.2}%
+\contentsline {subsection}{\numberline {13.9.3}Aprendizaje Distribuido en el Edge}{396}{subsection.13.9.3}%
+\contentsline {subsection}{\numberline {13.9.4}Integración con Blockchain}{396}{subsection.13.9.4}%
+\contentsline {subsection}{\numberline {13.9.5}Desafíos Futuros}{396}{subsection.13.9.5}%
+\contentsline {subsection}{\numberline {13.9.6}Escalabilidad}{396}{subsection.13.9.6}%
+\contentsline {subsection}{\numberline {13.9.7}Heterogeneidad de Dispositivos}{396}{subsection.13.9.7}%
+\contentsline {subsection}{\numberline {13.9.8}Regulación y Cumplimiento}{397}{subsection.13.9.8}%
+\contentsline {subsection}{\numberline {13.9.9}Oportunidades Futuras}{397}{subsection.13.9.9}%
+\contentsline {subsection}{\numberline {13.9.10}Colaboración Interinstitucional}{397}{subsection.13.9.10}%
+\contentsline {subsection}{\numberline {13.9.11}Aplicaciones en IoT}{397}{subsection.13.9.11}%
+\contentsline {subsection}{\numberline {13.9.12}Personalización en Tiempo Real}{397}{subsection.13.9.12}%
+\contentsline {subsection}{\numberline {13.9.13}El Aprendizaje Federado con Privacidad Mejorada en Registro Nacional de Plantaciones Forestales por Especies}{397}{subsection.13.9.13}%
+\contentsline {subsection}{\numberline {13.9.14}Código de Python}{398}{subsection.13.9.14}%
+\contentsline {subsection}{\numberline {13.9.15}Desempeño del Modelo en Rondas de Entrenamiento}{399}{subsection.13.9.15}%
+\contentsline {subsection}{\numberline {13.9.16}Impacto de la Diferenciación de Privacidad}{400}{subsection.13.9.16}%
+\contentsline {section}{\numberline {13.10}Conclusión}{401}{section.13.10}%

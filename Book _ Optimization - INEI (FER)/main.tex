@@ -1,0 +1,232 @@
+\documentclass[12pt, a4paper, oneside]{book}
+
+% --- Paquetes básicos y de idioma ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-noindentfirst]{babel}
+\usepackage{lmodern}
+
+% --- Paquetes de matemáticas ---
+\usepackage{amsmath, amssymb, mathrsfs}
+
+% --- Paquetes de gráficos y figuras ---
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{standalone}
+
+% --- Paquetes de tablas ---
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% --- Paquetes de diseño y formato ---
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{wallpaper}
+\usepackage{xcolor}
+\usepackage{caption}
+
+% --- Paquetes de referencias y enlaces ---
+\usepackage{hyperref}
+\usepackage{cite}
+
+% --- Paquetes de código ---
+\usepackage{listings}
+\usepackage{url}
+
+% --- Configuración adicional ---
+\geometry{a4paper, margin=2.5cm}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+
+% --- Configuración de encabezados y pies de página ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+
+% --- Configuración de títulos de figuras y tablas ---
+\captionsetup[figure]{labelfont={bf}, name={Figura}, labelsep=period}
+\captionsetup[table]{labelfont={bf}, name={Tabla}, labelsep=period}
+
+% --- Configuración de código ---
+\lstset{
+	language=Python,
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{blue},
+	commentstyle=\color{gray},
+	stringstyle=\color{red},
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	stepnumber=1,
+	numbersep=5pt,
+	backgroundcolor=\color{white},
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	frame=single,
+	rulecolor=\color{black},
+	tabsize=4,
+	captionpos=b,
+	breaklines=true,
+	breakatwhitespace=false,
+	title=\lstname,
+	escapeinside={\%*}{*)},
+	morekeywords={*,...},
+}
+\documentclass[12pt,a4,oneside]{book}
+\usepackage{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{forest}
+\usepackage{geometry}
+\usepackage{multirow}
+\usepackage{wallpaper}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{xcolor}
+\documentclass[12pt]{article}
+
+% Paquetes básicos y avanzados
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\shorthandoff{"} % Desactiva temporalmente los caracteres " activos de babel
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{adjustbox}
+\usepackage{verbatim} % Para el entorno verbatim
+\usepackage{float}
+% Configuración de márgenes y encabezados
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[R]{\thepage}
+\documentclass[12pt,a4,oneside]{book}
+\usepackage{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{forest}
+\usepackage{geometry}
+\usepackage{multirow}
+\usepackage{wallpaper}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+	language=Python,
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{blue},
+	commentstyle=\color{gray},
+	stringstyle=\color{red},
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	stepnumber=1,
+	numbersep=5pt,
+	backgroundcolor=\color{white},
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	frame=single,
+	rulecolor=\color{black},
+	tabsize=4,
+	captionpos=b,
+	breaklines=true,
+	breakatwhitespace=false,
+	title=\lstname,
+	escapeinside={\%*}{*)},
+	morekeywords={*,...},
+}
+\usepackage{lmodern}
+\begin{document}
+	
+	% Diseño de la Portada
+	\ThisCenterWallPaper{1}{background.png}
+	\begin{titlepage}
+		\vspace{15cm}
+		\today
+	\end{titlepage}
+	
+	\begin{wrapfigure}{R}{0.25\textwidth}
+		\vspace{-20pt}
+		\includegraphics[width=0.25\textwidth]{fred (1).jpg}
+	\end{wrapfigure}
+	
+	\noindent\textbf{Acerca del Autor}
+	
+	\noindent Ing. Fred Torres Cruz es un destacado académico e investigador en el campo de la estadística y la informática, con una trayectoria que combina la excelencia académica con la experiencia práctica en el desarrollo de software. Su formación académica incluye un Doctorado en Estadística Aplicada, que le ha permitido profundizar en el análisis de datos complejos y el desarrollo de metodologías innovadoras.
+	
+	\medskip
+	\noindent Como profesor en la Universidad Nacional del Altiplano (UNA PUNO), ha contribuido significativamente al desarrollo académico de la institución, impartiendo cursos especializados en estadística avanzada, programación y ciencia de datos. Su enfoque pedagógico se caracteriza por integrar la teoría con aplicaciones prácticas del mundo real.
+	
+	\medskip
+	\noindent Sus líneas de investigación abarcan diversos campos de la ciencia de datos moderna, incluyendo:
+	
+	\begin{itemize}
+		\item Desarrollo de algoritmos optimizados para el procesamiento de datos masivos
+		\item Implementación de soluciones basadas en la nube para análisis estadístico
+		\item Aplicaciones avanzadas de Procesamiento de Lenguaje Natural (NLP)
+		\item Investigación en modelos de Dirichlet y técnicas de aprendizaje automático
+		\item Desarrollo de frameworks para meta aprendizaje
+		\item Sistemas innovadores de gestión del conocimiento
+	\end{itemize}
+	
+	\medskip
+	\noindent Su experiencia como Desarrollador de Software ha enriquecido su perspectiva académica, permitiéndole crear soluciones prácticas y eficientes para problemas complejos de análisis de datos. Ha participado en numerosos proyectos de investigación que han resultado en publicaciones indexadas, contribuyendo al avance del conocimiento en sus áreas de especialización.
+	
+	\medskip
+	\noindent El Ing. Torres Cruz mantiene un compromiso activo con la comunidad académica y científica, participando regularmente en conferencias y colaborando en proyectos interdisciplinarios. Su trabajo se caracteriza por buscar la integración entre la teoría estadística avanzada y las aplicaciones prácticas en el campo de la tecnología de la información.
+	
+	\tableofcontents	
+	%----------------------------------------------------------------------
+	% Inclusión de Capítulos
+	%----------------------------------------------------------------------
+	\include{chapters/capitulo1}
+	\include{chapters/capitulo2}
+	\include{chapters/capitulo3}
+	\include{chapters/capitulo4}
+	\include{chapters/capitulo5}
+	\include{chapters/capitulo6}
+	\include{chapters/capitulo7}
+	\include{chapters/capitulo8}
+	\include{chapters/capitulo9}
+	\include{chapters/capitulo10}
+	\include{chapters/capitulo11}
+	\include{chapters/capitulo12}
+	\include{chapters/capitulo13}
+	
+	
+	
+	
+\end{document}
